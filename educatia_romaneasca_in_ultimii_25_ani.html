@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Criza educației din România — 25 de ani de declin</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,-apple-system,sans-serif;background:#0d1117;color:#c9d1d9;padding:24px}
+h1{font-size:22px;font-weight:500;margin-bottom:4px;color:#e6edf3}
+.sub{font-size:14px;color:#8b949e;margin-bottom:24px;max-width:900px;line-height:1.6}
+.panel{max-width:1100px;margin:0 auto 8px}
+.panel-title{font-size:14px;font-weight:500;color:#e6edf3;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.panel-sub{font-size:11px;color:#484f58;margin-bottom:6px}
+.chart-wrap{position:relative;width:100%;height:200px}
+.chart-wrap.tall{height:260px}
+.minister-strip{max-width:1100px;margin:0 auto 24px;padding:12px 16px;background:#161b22;border:1px solid #30363d;border-radius:8px}
+.minister-strip h3{font-size:13px;font-weight:500;color:#e6edf3;margin-bottom:8px}
+.minister-dots{display:flex;gap:3px;flex-wrap:wrap;align-items:center}
+.mdot{width:14px;height:14px;border-radius:3px;display:inline-block;position:relative;cursor:default}
+.mdot:hover::after{content:attr(data-tip);position:absolute;bottom:20px;left:50%;transform:translateX(-50%);background:#161b22;border:1px solid #30363d;border-radius:6px;padding:4px 8px;font-size:11px;white-space:nowrap;color:#c9d1d9;z-index:10}
+.year-label{font-size:10px;color:#484f58;margin:0 2px;line-height:14px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;max-width:1100px;margin:0 auto 16px;font-size:12px;color:#8b949e}
+.leg-item{display:flex;align-items:center;gap:5px}
+.swatch{width:10px;height:10px;border-radius:2px;display:inline-block}
+.divider{max-width:1100px;margin:16px auto;border-top:1px solid #21262d}
+.summary{max-width:1100px;margin:32px auto 0;padding:24px;background:#161b22;border:1px solid #30363d;border-radius:12px}
+.summary h2{font-size:16px;font-weight:500;color:#e6edf3;margin-bottom:12px}
+.summary p{font-size:14px;line-height:1.7;color:#8b949e;margin-bottom:12px}
+.summary p:last-child{margin-bottom:0}
+.highlight{color:#c9d1d9;font-weight:500}
+.stat-row{display:flex;gap:12px;max-width:1100px;margin:0 auto 24px;flex-wrap:wrap}
+.stat-card{flex:1;min-width:140px;background:#161b22;border:1px solid #30363d;border-radius:8px;padding:14px 16px}
+.stat-label{font-size:11px;color:#484f58;margin-bottom:4px}
+.stat-val{font-size:24px;font-weight:500}
+.stat-context{font-size:11px;color:#484f58;margin-top:4px}
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #8b949e;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+  margin-bottom: 24px;
+}
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+</style>
+</head>
+<body>
+<a href="index.html" class="back-button">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+  Înapoi la Galerie
+</a>
+<h1>Criza educației din România — 25 de ani de eșec sistemic</h1>
+<p class="sub">Trei grafice spun o singură poveste: subfinanțarea cronică alimentează eșecul la examene, care produce o generație fără oportunități. Al patrulea — scorurile PISA — confirmă decalajul față de restul Europei. În spatele tuturor, un carusel de peste 40 de miniștri ai educației în 25 de ani face ca nicio reformă să nu dureze suficient.</p>
+
+<div class="stat-row">
+  <div class="stat-card">
+    <div class="stat-label">Cheltuieli educație (% PIB)</div>
+    <div class="stat-val" style="color:#E24B4A">2,9%</div>
+    <div class="stat-context">Cel mai mic din UE. Media: 4,7%</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Rata promovare BAC (min. 2011)</div>
+    <div class="stat-val" style="color:#EF9F27">44%</div>
+    <div class="stat-context">După introducerea camerelor video</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Rata NEET tineri (2024)</div>
+    <div class="stat-val" style="color:#D85A30">19,4%</div>
+    <div class="stat-context">Cel mai mare din UE. Media: 11%</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Miniștri ai educației din 2000</div>
+    <div class="stat-val" style="color:#534AB7">~40</div>
+    <div class="stat-context">Mandat mediu: ~7 luni</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Abandon școlar timpuriu (2024)</div>
+    <div class="stat-val" style="color:#C92D4B">16,8%</div>
+    <div class="stat-context">Cel mai mare din UE. Ținta: &lt;9%</div>
+  </div>
+</div>
+
+<div class="minister-strip">
+  <h3>Instabilitate ministerială — fiecare pătrat = un ministru al educației din 2000</h3>
+  <div class="minister-dots">
+    <span class="year-label">'00</span>
+    <span class="mdot" style="background:#534AB7" data-tip="Andrei Marga (1998–2000)"></span>
+    <span class="mdot" style="background:#7F77DD" data-tip="Ecaterina Andronescu (2000–2003)"></span>
+    <span class="year-label">'03</span>
+    <span class="mdot" style="background:#534AB7" data-tip="Alexandru Athanasiu (2003–2004)"></span>
+    <span class="mdot" style="background:#7F77DD" data-tip="Mircea Miclea (2004–2005)"></span>
+    <span class="year-label">'05</span>
+    <span class="mdot" style="background:#534AB7" data-tip="Mihail Hărdău (2005–2006)"></span>
+    <span class="mdot" style="background:#7F77DD" data-tip="Cristian Adomniței (2006–2008)"></span>
+    <span class="year-label">'08</span>
+    <span class="mdot" style="background:#534AB7" data-tip="Anton Anton (2008)"></span>
+    <span class="mdot" style="background:#7F77DD" data-tip="Ecaterina Andronescu (2008–2009)"></span>
+    <span class="mdot" style="background:#534AB7" data-tip="Cabinetul Boc (2009)"></span>
+    <span class="year-label">'09</span>
+    <span class="mdot" style="background:#7F77DD" data-tip="Daniel Funeriu (2009–2012)"></span>
+    <span class="year-label">'12</span>
+    <span class="mdot" style="background:#534AB7" data-tip="Ecaterina Andronescu (2012)"></span>
+    <span class="mdot" style="background:#7F77DD" data-tip="Remus Pricopie (2012–2014)"></span>
+    <span class="year-label">'14</span>
+    <span class="mdot" style="background:#534AB7" data-tip="Sorin Câmpeanu (2014–2015)"></span>
+    <span class="mdot" style="background:#7F77DD" data-tip="Adrian Curaj (2015–2017)"></span>
+    <span class="year-label">'17</span>
+    <span class="mdot" style="background:#534AB7" data-tip="Liviu Pop (2017)"></span>
+    <span class="mdot" style="background:#7F77DD" data-tip="Valentin Popa (2017–2018)"></span>
+    <span class="mdot" style="background:#534AB7" data-tip="Ecaterina Andronescu (2018–2019)"></span>
+    <span class="year-label">'19</span>
+    <span class="mdot" style="background:#7F77DD" data-tip="Monica Anisie (2019–2020)"></span>
+    <span class="mdot" style="background:#534AB7" data-tip="Cristina Anisie (2020)"></span>
+    <span class="year-label">'20</span>
+    <span class="mdot" style="background:#7F77DD" data-tip="Sorin Câmpeanu (2020–2021)"></span>
+    <span class="mdot" style="background:#534AB7" data-tip="Sorin Câmpeanu (2021–2022)"></span>
+    <span class="year-label">'22</span>
+    <span class="mdot" style="background:#7F77DD" data-tip="Ligia Deca (2022–2024)"></span>
+    <span class="year-label">'24</span>
+    <span class="mdot" style="background:#534AB7" data-tip="Daniel David (2024–2025)"></span>
+    <span class="mdot" style="background:#7F77DD" data-tip="în prezent (2025–)"></span>
+  </div>
+</div>
+
+<div class="panel">
+  <div class="panel-title"><span class="swatch" style="background:#E24B4A"></span> Cheltuieli pentru educație (% din PIB)</div>
+  <div class="panel-sub">România vs media UE. Pragul legal de 6% nu a fost atins niciodată.</div>
+  <div class="chart-wrap" id="wrap1"><canvas id="c1"></canvas></div>
+</div>
+
+<div class="divider"></div>
+
+<div class="panel">
+  <div class="panel-title"><span class="swatch" style="background:#EF9F27"></span> Rata de promovare la Bacalaureat (%)</div>
+  <div class="panel-sub">Rata cumulată de promovare după toate sesiunile. Prăbușirea din 2011 coincide cu introducerea camerelor anti-fraudă.</div>
+  <div class="chart-wrap tall" id="wrap2"><canvas id="c2"></canvas></div>
+</div>
+
+<div class="divider"></div>
+
+<div class="panel">
+  <div class="panel-title"><span class="swatch" style="background:#D85A30"></span> Rata NEET în rândul tinerilor (% din 15–29 ani)</div>
+  <div class="panel-sub">România vs media UE. Tineri care nu sunt nici angajați, nici în educație sau formare — consecința finală.</div>
+  <div class="chart-wrap" id="wrap3"><canvas id="c3"></canvas></div>
+</div>
+
+<div class="divider"></div>
+
+<div class="panel">
+  <div class="panel-title"><span class="swatch" style="background:#5DCAA5"></span> Scoruri PISA — comparație internațională</div>
+  <div class="panel-sub">Performanța elevilor de 15 ani din România vs media OCDE. Scorurile sunt pe o scală de la 0 la 600+. Sub 420 = sub nivelul minim de competență.</div>
+  <div class="chart-wrap tall" id="wrap4"><canvas id="c4"></canvas></div>
+  <div style="display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:8px;font-size:11px;color:#8b949e">
+    <span style="display:flex;align-items:center;gap:4px"><span style="width:16px;height:2px;background:#5DCAA5;display:inline-block;border-radius:1px"></span>Matematică</span>
+    <span style="display:flex;align-items:center;gap:4px"><span style="width:16px;height:2px;background:#EF9F27;display:inline-block;border-radius:1px"></span>Citire</span>
+    <span style="display:flex;align-items:center;gap:4px"><span style="width:16px;height:2px;background:#ED93B1;display:inline-block;border-radius:1px"></span>Științe</span>
+    <span style="display:flex;align-items:center;gap:4px;margin-left:8px"><span style="width:16px;height:0;border-top:1.5px dashed #6692FF;display:inline-block"></span>Linie întreruptă = media OCDE</span>
+  </div>
+</div>
+
+<div class="summary">
+  <h2>Cercul vicios</h2>
+  <p>Cele patru grafice nu sunt povești independente — sunt un singur circuit de feedback. <span class="highlight">Subfinanțarea cronică</span> (România nu a depășit niciodată 3,5% din PIB pentru educație, față de media UE de 4,7% și propriul mandat legal de 6%) produce școli fără resurse, profesori prost plătiți și programe școlare învechite.</p>
+  <p>Rezultatul apare în fiecare iunie în <span class="highlight">rezultatele Bacalaureatului</span>. Când măsurile anti-fraudă au fost introduse în 2011, rata de promovare a căzut de la ~78% la ~44% — nu pentru că elevii au devenit brusc mai slabi, ci pentru că nivelul real de învățare a fost în sfârșit expus. Rata a revenit lent la ~74% în 2025, dar asta înseamnă că unul din patru absolvenți de liceu nu poate trece examenul de ieșire din sistem.</p>
+  <p>Cei care pică BAC-ul — și cei care abandonează înainte de a ajunge la el — alimentează direct <span class="highlight">criza NEET din România</span>. Cu 19,4%, România are cea mai mare proporție de tineri dezangajați din întreaga UE. Aproape unul din cinci tineri români între 15–29 de ani nu lucrează și nici nu studiază. Pentru tinerele din mediul rural, cifra ajunge la 37%. Șomajul în rândul tinerilor a atins 26,3% în decembrie 2024 — cel mai mare din Europa, depășind chiar Spania și Grecia.</p>
+  <p>În spatele tuturor stă o disfuncție mai profundă: <span class="highlight">instabilitatea instituțională</span>. România a trecut prin aproximativ 40 de miniștri ai educației în 25 de ani. Cu un mandat mediu de aproximativ 7 luni, niciun ministru nu rămâne suficient de mult pentru a implementa reforme reale. Programele școlare sunt anunțate, parțial aplicate, apoi abandonate de următorul titular. Legea educației a fost rescrisă de mai multe ori (2011, 2023), în timp ce problemele fundamentale — salariile profesorilor, infrastructura rurală, accesul digital — rămân nerezolvate.</p>
+  <p>Datele conturează imaginea unui sistem <span class="highlight">înfometat sistematic de resurse</span>, destabilizat de schimbările politice și lăsat să producă o generație cu <span class="highlight">mai puține oportunități decât aveau părinții lor</span>. Rata în scădere a absolvenților de studii superioare (de la 26% la 23% între 2019–2024) și cea mai mare rată de abandon școlar din UE (16,8%) sugerează că tendința nu se inversează încă.</p>
+  <p>Testele <span class="highlight">PISA</span> confirmă tabloul sumbru la nivel internațional. România a obținut constant scoruri cu 40–70 de puncte sub media OCDE la matematică, citire și științe. Punctul minim a fost atins în 2006 (396 la citire), iar vârful modest din 2012 (~438–445) s-a erodat de atunci. În 2022, aproximativ 41% dintre elevii români de 15 ani nu au atins nivelul minim de competență la matematică (Level 2) — aproape dublu față de media OCDE de 31%. Aceste scoruri nu sunt doar cifre abstracte: ele măsoară capacitatea unei generații de a înțelege un grafic, de a evalua o sursă de informație sau de a rezolva o problemă practică.</p>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const txtCol = '#8b949e';
+const gridCol = 'rgba(255,255,255,.06)';
+const annotCol = 'rgba(255,255,255,.12)';
+
+function makeChart(id, wrapId, labels, datasets, yOpts, annotations) {
+  return new Chart(document.getElementById(id), {
+    type: 'line',
+    data: { labels, datasets },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode:'index', intersect:false },
+      plugins: {
+        legend: { display:false },
+        tooltip: {
+          backgroundColor:'#161b22',borderColor:'#30363d',borderWidth:1,
+          titleColor:'#e6edf3',bodyColor:'#c9d1d9',
+          callbacks: {
+            label: ctx => ctx.raw !== null ? '  ' + ctx.dataset.label + ': ' + ctx.raw.toFixed(1) + '%' : null
+          }
+        }
+      },
+      scales: {
+        x: { ticks:{color:txtCol,font:{size:11},maxRotation:0,autoSkip:true,maxTicksLimit:13}, grid:{color:gridCol} },
+        y: Object.assign({ ticks:{color:txtCol,font:{size:11},callback:v=>v+'%'}, grid:{color:gridCol} }, yOpts)
+      }
+    },
+    plugins: annotations ? [{
+      id:'annot',
+      afterDraw(chart) {
+        const ctx = chart.ctx;
+        const xScale = chart.scales.x;
+        const yScale = chart.scales.y;
+        annotations.forEach(a => {
+          const idx = labels.indexOf(a.year);
+          if (idx === -1) return;
+          const x = xScale.getPixelForValue(idx);
+          ctx.save();
+          ctx.strokeStyle = annotCol;
+          ctx.setLineDash([3,3]);
+          ctx.beginPath();
+          ctx.moveTo(x, yScale.top);
+          ctx.lineTo(x, yScale.bottom);
+          ctx.stroke();
+          ctx.setLineDash([]);
+          ctx.font = '9px system-ui,sans-serif';
+          ctx.fillStyle = 'rgba(255,255,255,.3)';
+          ctx.textAlign = 'center';
+          ctx.fillText(a.label, x, yScale.top - 4);
+          ctx.restore();
+        });
+      }
+    }] : []
+  });
+}
+
+const years = ['2000','2001','2002','2003','2004','2005','2006','2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017','2018','2019','2020','2021','2022','2023','2024','2025'];
+
+const roSpend = [3.4,3.3,3.5,3.4,3.3,3.5,3.5,3.2,3.1,3.1,3.3,3.0,2.8,2.8,2.8,3.1,3.3,2.8,3.1,3.2,3.6,3.3,2.9,2.9,3.0,3.0];
+const euSpend = [4.9,4.9,5.0,5.1,5.0,5.0,4.9,4.8,4.8,5.1,5.0,4.9,4.9,4.9,4.8,4.8,4.7,4.7,4.6,4.7,5.0,4.9,4.7,4.7,4.7,4.7];
+
+makeChart('c1','wrap1', years, [
+  { label:'România', data:roSpend, borderColor:'#E24B4A', backgroundColor:'rgba(226,75,74,.12)', borderWidth:2.5, pointRadius:2, tension:0.3, fill:true },
+  { label:'Media UE', data:euSpend, borderColor:'#6692FF', backgroundColor:'transparent', borderWidth:1.5, pointRadius:0, tension:0.3, borderDash:[5,4], fill:false }
+], { min:2, max:6, ticks:{stepSize:1} }, [
+  {year:'2011',label:'Legea Educației'},
+  {year:'2023',label:'Noua Lege a Educației'}
+]);
+
+const bacRate = [78,80,78,75,77,76,75,78,79,78,68,44,56,56,61,66,68,72,70,64,66,65,74,73,76,74];
+
+makeChart('c2','wrap2', years, [
+  { label:'Rata promovare BAC', data:bacRate, borderColor:'#EF9F27', backgroundColor:'rgba(239,159,39,.1)', borderWidth:2.5, pointRadius:3, pointHoverRadius:6, tension:0.3, fill:true }
+], { min:30, max:90, ticks:{stepSize:10} }, [
+  {year:'2011',label:'Camere anti-fraudă'},
+  {year:'2017',label:'Reformă curriculară'},
+  {year:'2020',label:'COVID-19'},
+  {year:'2023',label:'Corectare digitală'}
+]);
+
+const roNeet = [null,null,null,null,null,null,null,null,null,null,null,null,null,17.2,17.0,18.1,17.4,15.2,14.9,14.7,14.8,15.3,19.8,19.3,19.4,null];
+const euNeet = [null,null,null,null,null,null,null,null,null,null,null,null,null,15.0,14.5,13.9,13.4,12.5,12.0,11.8,12.6,11.7,11.7,11.2,11.0,null];
+
+makeChart('c3','wrap3', years, [
+  { label:'România NEET', data:roNeet, borderColor:'#D85A30', backgroundColor:'rgba(216,90,48,.12)', borderWidth:2.5, pointRadius:2, tension:0.3, fill:true, spanGaps:true },
+  { label:'Media UE NEET', data:euNeet, borderColor:'#6692FF', backgroundColor:'transparent', borderWidth:1.5, pointRadius:0, tension:0.3, borderDash:[5,4], fill:false, spanGaps:true }
+], { min:8, max:22, ticks:{stepSize:2} }, [
+  {year:'2020',label:'COVID-19'}
+]);
+
+const pisaYears = ['2006','2009','2012','2015','2018','2022'];
+const roMath =    [415, 427, 445, 444, 430, 428];
+const roRead =    [396, 424, 438, 434, 428, 428];
+const roSci =     [418, 428, 439, 435, 426, 428];
+const oecdMath =  [498, 496, 494, 490, 489, 472];
+const oecdRead =  [492, 493, 496, 493, 487, 476];
+const oecdSci =   [500, 501, 501, 493, 489, 485];
+
+new Chart(document.getElementById('c4'), {
+  type: 'line',
+  data: {
+    labels: pisaYears,
+    datasets: [
+      { label:'România — Matematică', data:roMath, borderColor:'#5DCAA5', backgroundColor:'rgba(93,202,165,.1)', borderWidth:2.5, pointRadius:5, pointHoverRadius:8, tension:0.3, fill:false },
+      { label:'România — Citire', data:roRead, borderColor:'#EF9F27', borderWidth:2.5, pointRadius:5, pointHoverRadius:8, tension:0.3, fill:false },
+      { label:'România — Științe', data:roSci, borderColor:'#ED93B1', borderWidth:2.5, pointRadius:5, pointHoverRadius:8, tension:0.3, fill:false },
+      { label:'Media OCDE — Matematică', data:oecdMath, borderColor:'#5DCAA5', borderWidth:1.5, pointRadius:0, tension:0.3, borderDash:[5,4], fill:false },
+      { label:'Media OCDE — Citire', data:oecdRead, borderColor:'#EF9F27', borderWidth:1.5, pointRadius:0, tension:0.3, borderDash:[5,4], fill:false },
+      { label:'Media OCDE — Științe', data:oecdSci, borderColor:'#ED93B1', borderWidth:1.5, pointRadius:0, tension:0.3, borderDash:[5,4], fill:false }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    interaction: { mode:'index', intersect:false },
+    plugins: {
+      legend: { display:false },
+      tooltip: {
+        backgroundColor:'#161b22',borderColor:'#30363d',borderWidth:1,
+        titleColor:'#e6edf3',bodyColor:'#c9d1d9',
+        callbacks: {
+          label: ctx => '  ' + ctx.dataset.label + ': ' + ctx.raw,
+          afterBody: function(items) {
+            if (items.length > 0 && items[0].dataIndex >= 0) {
+              const i = items[0].dataIndex;
+              const gaps = [
+                'Decalaj matematică: ' + (roMath[i] - oecdMath[i]),
+                'Decalaj citire: ' + (roRead[i] - oecdRead[i]),
+                'Decalaj științe: ' + (roSci[i] - oecdSci[i])
+              ];
+              return [' ', ...gaps];
+            }
+          }
+        }
+      }
+    },
+    scales: {
+      x: { ticks:{color:txtCol,font:{size:12},autoSkip:false}, grid:{color:gridCol} },
+      y: {
+        min:370, max:520, ticks:{color:txtCol,font:{size:11},stepSize:20},
+        grid:{color:gridCol},
+        title:{display:true,text:'Scor PISA',color:txtCol,font:{size:12}}
+      }
+    }
+  },
+  plugins: [{
+    id:'pisaLegend',
+    afterDraw(chart) {
+      const ctx = chart.ctx;
+      const xScale = chart.scales.x;
+      const yScale = chart.scales.y;
+      ctx.save();
+      ctx.strokeStyle = 'rgba(255,255,255,.08)';
+      ctx.setLineDash([3,3]);
+      const y420 = yScale.getPixelForValue(420);
+      ctx.beginPath();
+      ctx.moveTo(xScale.left, y420);
+      ctx.lineTo(xScale.right, y420);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.font = '9px system-ui,sans-serif';
+      ctx.fillStyle = 'rgba(255,255,255,.25)';
+      ctx.textAlign = 'right';
+      ctx.fillText('Nivel minim competență (Level 2)', xScale.right, y420 - 5);
+      ctx.restore();
+    }
+  }]
+});
+</script>
+</body>
+</html>

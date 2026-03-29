@@ -263,6 +263,33 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Section Layout */
+        section {
+            margin-bottom: 6rem;
+        }
+
+        .section-header {
+            margin-bottom: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .section-header h2 {
+            font-size: 2.25rem;
+            font-weight: 600;
+            color: var(--text-main);
+            letter-spacing: -0.02em;
+            white-space: nowrap;
+        }
+
+        .section-line {
+            flex-grow: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--glass-border), transparent);
+        }
     </style>
 </head>
 
@@ -287,71 +314,105 @@
     </header>
 
     <main>
-        <div class="grid">
-            <!-- F1 Constructors Card -->
-            <a href="F1-constructors-river-of-points.html" class="card">
-                <div class="card-icon">🏎️</div>
-                <h3>River of Points</h3>
-                <p>An immersive visualization of Formula 1 constructor points across seasons, showcasing the rise and
-                    fall of racing dynasties.</p>
-                <div class="card-footer">
-                    Explore Visualization
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                </div>
-            </a>
+        <!-- Romanian Education Section -->
+        <section id="educatie">
+            <div class="section-header">
+                <h2>Educația în România</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="grid">
+                <!-- Romanian Education Card -->
+                <a href="educatia_romaneasca_in_ultimii_25_ani.html" class="card">
+                    <div class="card-icon">📚</div>
+                    <h3>Criza educației din România</h3>
+                    <p>25 de ani de declin: o analiză a subfinanțării, rezultatelor la BAC și a instabilității
+                        miniștrilor.</p>
+                    <div class="card-footer">
+                        Explorează Vizualizarea
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </div>
+                </a>
+            </div>
+        </section>
 
-            <!-- F1 Youngest Card -->
-            <a href="f1_youngest_records.html" class="card">
-                <div class="card-icon">🏁</div>
-                <h3>F1 Youngest Legends</h3>
-                <p>Tracking the record-breaking achievements of the youngest drivers in Formula 1 history, from debut to
-                    championship glory.</p>
-                <div class="card-footer">
-                    Explore Visualization
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                </div>
-            </a>
+        <!-- Hobby Section -->
+        <section id="hobby">
+            <div class="section-header">
+                <h2>Hobby</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="grid">
+                <!-- F1 Constructors Card -->
+                <a href="F1-constructors-river-of-points.html" class="card">
+                    <div class="card-icon">🏎️</div>
+                    <h3>River of Points</h3>
+                    <p>An immersive visualization of Formula 1 constructor points across seasons, showcasing the rise and
+                        fall of racing dynasties.</p>
+                    <div class="card-footer">
+                        Explore Visualization
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </div>
+                </a>
 
-            <!-- F1 Oldest Card -->
-            <a href="F1_grand_old_masters_the_oldest_to_achieve_it_all.html" class="card">
-                <div class="card-icon">🏛️</div>
-                <h3>Grand Old Masters</h3>
-                <p>Celebrating the longevity and wisdom of Formula 1's oldest winners and record-breakers across the
-                    decades.</p>
-                <div class="card-footer">
-                    Explore Visualization
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                </div>
-            </a>
+                <!-- F1 Youngest Card -->
+                <a href="f1_youngest_records.html" class="card">
+                    <div class="card-icon">🏁</div>
+                    <h3>F1 Youngest Legends</h3>
+                    <p>Tracking the record-breaking achievements of the youngest drivers in Formula 1 history, from debut
+                        to
+                        championship glory.</p>
+                    <div class="card-footer">
+                        Explore Visualization
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </div>
+                </a>
 
-            <!-- F1 Lap Time Card -->
-            <a href="f1_lap_time_evolution.html" class="card">
-                <div class="card-icon">⏱️</div>
-                <h3>Pursuit of Speed</h3>
-                <p>Analyzing the relentless evolution of F1 lap times across three iconic circuits, from the 1970s to the
-                    present day.</p>
-                <div class="card-footer">
-                    Explore Visualization
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                </div>
-            </a>
-        </div>
+                <!-- F1 Oldest Card -->
+                <a href="F1_grand_old_masters_the_oldest_to_achieve_it_all.html" class="card">
+                    <div class="card-icon">🏛️</div>
+                    <h3>Grand Old Masters</h3>
+                    <p>Celebrating the longevity and wisdom of Formula 1's oldest winners and record-breakers across the
+                        decades.</p>
+                    <div class="card-footer">
+                        Explore Visualization
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- F1 Lap Time Card -->
+                <a href="f1_lap_time_evolution.html" class="card">
+                    <div class="card-icon">⏱️</div>
+                    <h3>Pursuit of Speed</h3>
+                    <p>Analyzing the relentless evolution of F1 lap times across three iconic circuits, from the 1970s to
+                        the
+                        present day.</p>
+                    <div class="card-footer">
+                        Explore Visualization
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </div>
+                </a>
+            </div>
+        </section>
     </main>
 
     <footer>
