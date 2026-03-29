@@ -34,11 +34,35 @@ h1{font-size:22px;font-weight:500;margin-bottom:4px;color:#e6edf3}
 .stat-label{font-size:11px;color:#484f58;margin-bottom:4px}
 .stat-val{font-size:24px;font-weight:500}
 .stat-context{font-size:11px;color:#484f58;margin-top:4px}
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #8b949e;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+  margin-bottom: 24px;
+}
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
 </style>
 </head>
 <body>
+<a href="index.html" class="back-button">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+  Înapoi la Galerie
+</a>
 <h1>Criza educației din România — 25 de ani de eșec sistemic</h1>
-<p class="sub">Trei grafice spun o singură poveste: subfinanțarea cronică alimentează eșecul la examene, care produce o generație fără oportunități. Al patrulea — scorurile PISA — confirmă decalajul față de restul Europei. În spatele tuturor, un carusel de ~26 de mandate ministeriale în 25 de ani face ca nicio reformă să nu dureze suficient.</p>
+<p class="sub">Trei grafice spun o singură poveste: subfinanțarea cronică alimentează eșecul la examene, care produce o generație fără oportunități. Al patrulea — scorurile PISA — confirmă decalajul față de restul Europei. În spatele tuturor, un carusel de peste 40 de miniștri ai educației în 25 de ani face ca nicio reformă să nu dureze suficient.</p>
 
 <div class="stat-row">
   <div class="stat-card">
@@ -57,9 +81,9 @@ h1{font-size:22px;font-weight:500;margin-bottom:4px;color:#e6edf3}
     <div class="stat-context">Cel mai mare din UE. Media: 11%</div>
   </div>
   <div class="stat-card">
-    <div class="stat-label">Mandate ministeriale din 2000</div>
-    <div class="stat-val" style="color:#534AB7">~26</div>
-    <div class="stat-context">Mandat mediu: ~11 luni</div>
+    <div class="stat-label">Miniștri ai educației din 2000</div>
+    <div class="stat-val" style="color:#534AB7">~40</div>
+    <div class="stat-context">Mandat mediu: ~7 luni</div>
   </div>
   <div class="stat-card">
     <div class="stat-label">Abandon școlar timpuriu (2024)</div>
@@ -69,49 +93,44 @@ h1{font-size:22px;font-weight:500;margin-bottom:4px;color:#e6edf3}
 </div>
 
 <div class="minister-strip">
-  <h3>Instabilitate ministerială — fiecare pătrat = un mandat de ministru al educației din 2000</h3>
+  <h3>Instabilitate ministerială — fiecare pătrat = un ministru al educației din 2000</h3>
   <div class="minister-dots">
     <span class="year-label">'00</span>
-    <span class="mdot" style="background:#534AB7" data-tip="Andrei Marga (1997–2000)"></span>
+    <span class="mdot" style="background:#534AB7" data-tip="Andrei Marga (1998–2000)"></span>
     <span class="mdot" style="background:#7F77DD" data-tip="Ecaterina Andronescu (2000–2003)"></span>
     <span class="year-label">'03</span>
     <span class="mdot" style="background:#534AB7" data-tip="Alexandru Athanasiu (2003–2004)"></span>
-    <span class="year-label">'04</span>
     <span class="mdot" style="background:#7F77DD" data-tip="Mircea Miclea (2004–2005)"></span>
     <span class="year-label">'05</span>
-    <span class="mdot" style="background:#534AB7" data-tip="Mihail Hărdău (2005–2007)"></span>
-    <span class="year-label">'07</span>
-    <span class="mdot" style="background:#7F77DD" data-tip="Cristian Adomniței (2007–2008)"></span>
+    <span class="mdot" style="background:#534AB7" data-tip="Mihail Hărdău (2005–2006)"></span>
+    <span class="mdot" style="background:#7F77DD" data-tip="Cristian Adomniței (2006–2008)"></span>
     <span class="year-label">'08</span>
-    <span class="mdot" style="background:#534AB7" data-tip="Anton Anton (oct–dec 2008)"></span>
+    <span class="mdot" style="background:#534AB7" data-tip="Anton Anton (2008)"></span>
     <span class="mdot" style="background:#7F77DD" data-tip="Ecaterina Andronescu (2008–2009)"></span>
-    <span class="mdot" style="background:#534AB7" data-tip="Emil Boc interimar (oct–dec 2009)"></span>
+    <span class="mdot" style="background:#534AB7" data-tip="Cabinetul Boc (2009)"></span>
     <span class="year-label">'09</span>
     <span class="mdot" style="background:#7F77DD" data-tip="Daniel Funeriu (2009–2012)"></span>
     <span class="year-label">'12</span>
-    <span class="mdot" style="background:#534AB7" data-tip="Cătălin Baba (feb–mai 2012)"></span>
-    <span class="mdot" style="background:#7F77DD" data-tip="Ioan Mang (7–15 mai 2012 — 8 zile!)"></span>
-    <span class="mdot" style="background:#534AB7" data-tip="Liviu Pop interimar (mai–iul 2012)"></span>
-    <span class="mdot" style="background:#7F77DD" data-tip="Ecaterina Andronescu (iul–dec 2012)"></span>
-    <span class="mdot" style="background:#534AB7" data-tip="Remus Pricopie (2012–2014)"></span>
+    <span class="mdot" style="background:#534AB7" data-tip="Ecaterina Andronescu (2012)"></span>
+    <span class="mdot" style="background:#7F77DD" data-tip="Remus Pricopie (2012–2014)"></span>
     <span class="year-label">'14</span>
-    <span class="mdot" style="background:#7F77DD" data-tip="Sorin Câmpeanu (2014–2015)"></span>
-    <span class="year-label">'15</span>
-    <span class="mdot" style="background:#534AB7" data-tip="Adrian Curaj (2015–2017)"></span>
+    <span class="mdot" style="background:#534AB7" data-tip="Sorin Câmpeanu (2014–2015)"></span>
+    <span class="mdot" style="background:#7F77DD" data-tip="Adrian Curaj (2015–2017)"></span>
     <span class="year-label">'17</span>
-    <span class="mdot" style="background:#7F77DD" data-tip="Liviu Pop (2017–2018)"></span>
-    <span class="mdot" style="background:#534AB7" data-tip="Valentin Popa (ian–nov 2018)"></span>
-    <span class="mdot" style="background:#7F77DD" data-tip="Ecaterina Andronescu (2018–2019)"></span>
+    <span class="mdot" style="background:#534AB7" data-tip="Liviu Pop (2017)"></span>
+    <span class="mdot" style="background:#7F77DD" data-tip="Valentin Popa (2017–2018)"></span>
+    <span class="mdot" style="background:#534AB7" data-tip="Ecaterina Andronescu (2018–2019)"></span>
     <span class="year-label">'19</span>
-    <span class="mdot" style="background:#534AB7" data-tip="Daniel Breaz (aug–nov 2019)"></span>
     <span class="mdot" style="background:#7F77DD" data-tip="Monica Anisie (2019–2020)"></span>
+    <span class="mdot" style="background:#534AB7" data-tip="Cristina Anisie (2020)"></span>
     <span class="year-label">'20</span>
-    <span class="mdot" style="background:#534AB7" data-tip="Sorin Câmpeanu (2020–2022)"></span>
+    <span class="mdot" style="background:#7F77DD" data-tip="Sorin Câmpeanu (2020–2021)"></span>
+    <span class="mdot" style="background:#534AB7" data-tip="Sorin Câmpeanu (2021–2022)"></span>
     <span class="year-label">'22</span>
     <span class="mdot" style="background:#7F77DD" data-tip="Ligia Deca (2022–2024)"></span>
     <span class="year-label">'24</span>
     <span class="mdot" style="background:#534AB7" data-tip="Daniel David (2024–2025)"></span>
-    <span class="mdot" style="background:#7F77DD" data-tip="Ministru actual (2025–)"></span>
+    <span class="mdot" style="background:#7F77DD" data-tip="în prezent (2025–)"></span>
   </div>
 </div>
 
@@ -156,7 +175,7 @@ h1{font-size:22px;font-weight:500;margin-bottom:4px;color:#e6edf3}
   <p>Cele patru grafice nu sunt povești independente — sunt un singur circuit de feedback. <span class="highlight">Subfinanțarea cronică</span> (România nu a depășit niciodată 3,5% din PIB pentru educație, față de media UE de 4,7% și propriul mandat legal de 6%) produce școli fără resurse, profesori prost plătiți și programe școlare învechite.</p>
   <p>Rezultatul apare în fiecare iunie în <span class="highlight">rezultatele Bacalaureatului</span>. Când măsurile anti-fraudă au fost introduse în 2011, rata de promovare a căzut de la ~78% la ~44% — nu pentru că elevii au devenit brusc mai slabi, ci pentru că nivelul real de învățare a fost în sfârșit expus. Rata a revenit lent la ~74% în 2025, dar asta înseamnă că unul din patru absolvenți de liceu nu poate trece examenul de ieșire din sistem.</p>
   <p>Cei care pică BAC-ul — și cei care abandonează înainte de a ajunge la el — alimentează direct <span class="highlight">criza NEET din România</span>. Cu 19,4%, România are cea mai mare proporție de tineri dezangajați din întreaga UE. Aproape unul din cinci tineri români între 15–29 de ani nu lucrează și nici nu studiază. Pentru tinerele din mediul rural, cifra ajunge la 37%. Șomajul în rândul tinerilor a atins 26,3% în decembrie 2024 — cel mai mare din Europa, depășind chiar Spania și Grecia.</p>
-  <p>În spatele tuturor stă o disfuncție mai profundă: <span class="highlight">instabilitatea instituțională</span>. România a trecut prin aproximativ 26 de mandate ministeriale la educație în 25 de ani. Cu un mandat mediu de aproximativ 11 luni, niciun ministru nu rămâne suficient de mult pentru a implementa reforme reale. Programele școlare sunt anunțate, parțial aplicate, apoi abandonate de următorul titular. Legea educației a fost rescrisă de mai multe ori (2011, 2023), în timp ce problemele fundamentale — salariile profesorilor, infrastructura rurală, accesul digital — rămân nerezolvate.</p>
+  <p>În spatele tuturor stă o disfuncție mai profundă: <span class="highlight">instabilitatea instituțională</span>. România a trecut prin aproximativ 40 de miniștri ai educației în 25 de ani. Cu un mandat mediu de aproximativ 7 luni, niciun ministru nu rămâne suficient de mult pentru a implementa reforme reale. Programele școlare sunt anunțate, parțial aplicate, apoi abandonate de următorul titular. Legea educației a fost rescrisă de mai multe ori (2011, 2023), în timp ce problemele fundamentale — salariile profesorilor, infrastructura rurală, accesul digital — rămân nerezolvate.</p>
   <p>Datele conturează imaginea unui sistem <span class="highlight">înfometat sistematic de resurse</span>, destabilizat de schimbările politice și lăsat să producă o generație cu <span class="highlight">mai puține oportunități decât aveau părinții lor</span>. Rata în scădere a absolvenților de studii superioare (de la 26% la 23% între 2019–2024) și cea mai mare rată de abandon școlar din UE (16,8%) sugerează că tendința nu se inversează încă.</p>
   <p>Testele <span class="highlight">PISA</span> confirmă tabloul sumbru la nivel internațional. România a obținut constant scoruri cu 40–70 de puncte sub media OCDE la matematică, citire și științe. Punctul minim a fost atins în 2006 (396 la citire), iar vârful modest din 2012 (~438–445) s-a erodat de atunci. În 2022, aproximativ 41% dintre elevii români de 15 ani nu au atins nivelul minim de competență la matematică (Level 2) — aproape dublu față de media OCDE de 31%. Aceste scoruri nu sunt doar cifre abstracte: ele măsoară capacitatea unei generații de a înțelege un grafic, de a evalua o sursă de informație sau de a rezolva o problemă practică.</p>
 </div>
