@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F1 Grand Old Masters — Oldest Debuts, Poles, Podiums & Championships</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,-apple-system,sans-serif;background:#0d1117;color:#c9d1d9;padding:24px}
+h1{font-size:22px;font-weight:500;margin-bottom:4px;color:#e6edf3}
+.sub{font-size:13px;color:#8b949e;margin-bottom:20px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 18px;margin-bottom:16px;font-size:12px;color:#8b949e}
+.leg-item{display:flex;align-items:center;gap:5px}
+.swatch{width:12px;height:12px;border-radius:3px;display:inline-block;flex-shrink:0}
+#chart-wrap{position:relative;width:100%;max-width:1000px;margin:0 auto;height:880px}
+.summary{max-width:1000px;margin:32px auto 0;padding:24px;background:#161b22;border:1px solid #30363d;border-radius:12px}
+.summary h2{font-size:16px;font-weight:500;color:#e6edf3;margin-bottom:12px}
+.summary p{font-size:14px;line-height:1.7;color:#8b949e;margin-bottom:12px}
+.summary p:last-child{margin-bottom:0}
+.highlight{color:#c9d1d9;font-weight:500}
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #8b949e;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+  margin-bottom: 24px;
+}
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.note{max-width:1000px;margin:16px auto 0;font-size:12px;color:#484f58;font-style:italic}
+</style>
+</head>
+<body>
+<a href="index.html" class="back-button">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+  Back to Gallery
+</a>
+<h1>F1 grand old masters — the oldest to achieve it all</h1>
+<p class="sub">Top 5 oldest drivers for each milestone. A testament to an era when age meant experience, not expiry.</p>
+
+<div class="legend">
+  <span class="leg-item"><span class="swatch" style="background:#534AB7"></span>Oldest race starter</span>
+  <span class="leg-item"><span class="swatch" style="background:#0F6E56"></span>Oldest pole sitter</span>
+  <span class="leg-item"><span class="swatch" style="background:#D85A30"></span>Oldest podium finisher</span>
+  <span class="leg-item"><span class="swatch" style="background:#3671C6"></span>Oldest world champion</span>
+</div>
+
+<div id="chart-wrap">
+  <canvas id="c"></canvas>
+</div>
+
+<p class="note">* Pole position ages for Fangio, Brabham, Hill, and Mansell are approximate based on their last known poles. Fagioli's 1951 French GP win was shared with Fangio.</p>
+
+<div class="summary">
+  <h2>When age was just a number on the car</h2>
+  <p>Modern F1 is a young person's game — cockpits hit 50°C, G-forces peak at 6–7G, and drivers train like Olympic athletes. But rewind to the 1950s, and the grid looked more like a gentlemen's club than a youth academy.</p>
+  <p><span class="highlight">Louis Chiron</span> holds the most staggering record on this chart: he started the 1955 Monaco Grand Prix at 55 years old — racing through the streets of his home principality, seven decades before Charles Leclerc would do the same. Born in 1899, Chiron had already been winning Grand Prix races for 20 years before F1 even existed.</p>
+  <p><span class="highlight">Luigi Fagioli</span> appears twice — as both the oldest podium finisher and one of the oldest starters. At 53, he co-drove to victory with Fangio at the 1951 French GP. Known as "The Old Abruzzi Robber" for his fierce temperament, Fagioli proved that experience and cunning could outmatch youth and reflexes.</p>
+  <p><span class="highlight">Juan Manuel Fangio</span> is the crown jewel of this list — winning his fifth world championship at 46, an age when today's drivers have long since retired to TV commentary. His 1957 German Grand Prix at the Nürburgring, where he overcame a 48-second deficit to win, is still considered the greatest drive in F1 history.</p>
+  <p>The gap between eras is telling: the oldest champion (Fangio, 46) is almost the same age as the oldest pole sitter (Farina, 47), but both would be considered ancient by modern standards. <span class="highlight">Fernando Alonso</span>, currently 46 and still racing in 2026, is the only active driver who could realistically join any of these lists — and he's already the oldest active F1 driver since the 1950s legends.</p>
+  <p>These records will almost certainly never be broken. But they remind us that F1 wasn't always about who could withstand the most G-forces — it was about who could dance with a 500-horsepower machine on tracks with no runoff, no barriers, and no margin for error. And sometimes, the steadiest hands belonged to the oldest drivers on the grid.</p>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const txtCol = '#8b949e';
+const gridCol = 'rgba(255,255,255,.06)';
+
+const labels = [
+  'Louis Chiron (1955)','Philippe Etancelin (1952)','Arthur Legat (1953)','Luigi Fagioli (1951)','Adolf Brudes (1952)',
+  '',
+  'Nino Farina (1954)','Juan Manuel Fangio (1958)*','Jack Brabham (1970)*','Nigel Mansell (1994)*','Graham Hill (1969)*',
+  '',
+  'Luigi Fagioli (1951)','Louis Chiron (1950)','Nino Farina (1953)','Juan Manuel Fangio (1957)','Piero Taruffi (1952)',
+  '',
+  'Juan Manuel Fangio (1957)','Nino Farina (1950)','Jack Brabham (1966)','Graham Hill (1968)','Nigel Mansell (1992)'
+];
+
+const starter = [55.80,55.51,54.64,53.06,52.79, null, null,null,null,null,null, null, null,null,null,null,null, null, null,null,null,null,null];
+const pole =    [null,null,null,null,null, null, 47.22,46.50,43.80,41.20,40.10, null, null,null,null,null,null, null, null,null,null,null,null];
+const podium =  [null,null,null,null,null, null, null,null,null,null,null, null, 53.06,50.82,46.76,46.11,45.60, null, null,null,null,null,null];
+const champ =   [null,null,null,null,null, null, null,null,null,null,null, null, null,null,null,null,null, null, 46.11,43.93,40.42,39.71,39.02];
+
+const ageLabels = [
+  '55y 292d','55y 188d','54y 232d','53y 22d','52y 290d',
+  '',
+  '47y 79d','~46y 6m','~43y 10m','~41y 3m','~40y 1m',
+  '',
+  '53y 22d','50y 300d','46y 276d','46y 41d','45y 219d',
+  '',
+  '46y 41d','43y 338d','40y 155d','39y 260d','39y 8d'
+];
+
+new Chart(document.getElementById('c'), {
+  type: 'bar',
+  data: {
+    labels: labels,
+    datasets: [
+      { label:'Oldest race starter', data: starter, backgroundColor:'#534AB7', borderRadius:4, barPercentage:0.7 },
+      { label:'Oldest pole sitter', data: pole, backgroundColor:'#0F6E56', borderRadius:4, barPercentage:0.7 },
+      { label:'Oldest podium finisher', data: podium, backgroundColor:'#D85A30', borderRadius:4, barPercentage:0.7 },
+      { label:'Oldest world champion', data: champ, backgroundColor:'#3671C6', borderRadius:4, barPercentage:0.7 }
+    ]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        backgroundColor: '#161b22',
+        borderColor: '#30363d',
+        borderWidth: 1,
+        titleColor: '#e6edf3',
+        bodyColor: '#c9d1d9',
+        callbacks: {
+          label: function(ctx) {
+            return '  Age: ' + ageLabels[ctx.dataIndex];
+          }
+        }
+      }
+    },
+    scales: {
+      x: {
+        min: 35,
+        max: 58,
+        title: { display: true, text: 'Age (years)', color: txtCol, font: { size: 13 } },
+        ticks: { color: txtCol, font: { size: 12 }, stepSize: 2 },
+        grid: { color: gridCol }
+      },
+      y: {
+        ticks: {
+          color: function(ctx) {
+            if (ctx.index === 5 || ctx.index === 11 || ctx.index === 17) return 'transparent';
+            return '#c9d1d9';
+          },
+          font: { size: 13 }
+        },
+        grid: { display: false }
+      }
+    }
+  },
+  plugins: [{
+    id: 'ageAnnotations',
+    afterDatasetsDraw(chart) {
+      const ctx = chart.ctx;
+      ctx.font = '12px system-ui, sans-serif';
+      ctx.fillStyle = 'rgba(255,255,255,.45)';
+      ctx.textBaseline = 'middle';
+      chart.data.datasets.forEach((ds, di) => {
+        ds.data.forEach((val, i) => {
+          if (val === null) return;
+          const meta = chart.getDatasetMeta(di);
+          const bar = meta.data[i];
+          ctx.fillText(ageLabels[i], bar.x + 8, bar.y);
+        });
+      });
+    }
+  }]
+});
+</script>
+</body>
+</html>

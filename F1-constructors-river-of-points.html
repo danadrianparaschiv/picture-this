@@ -25,9 +25,33 @@ path.stream{transition:opacity .15s}
 .summary p{font-size:14px;line-height:1.7;color:#8b949e;margin-bottom:12px}
 .summary p:last-child{margin-bottom:0}
 .highlight{color:#c9d1d9;font-weight:500}
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #8b949e;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+  margin-bottom: 24px;
+}
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
 </style>
 </head>
 <body>
+<a href="index.html" class="back-button">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+  Back to Gallery
+</a>
 <h1>F1 constructors — river of points</h1>
 <p class="sub">Constructor championship points per season, 1990–2025. Hover a stream to isolate a team.</p>
 <div id="chart">
