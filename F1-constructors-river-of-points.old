@@ -20,11 +20,6 @@ path.stream{transition:opacity .15s}
 .axis text{fill:#8b949e;font-size:12px}
 .axis .domain{display:none}
 .axis line{stroke:#21262d}
-.summary{max-width:1100px;margin:32px auto 0;padding:24px;background:#161b22;border:1px solid #30363d;border-radius:12px}
-.summary h2{font-size:16px;font-weight:500;color:#e6edf3;margin-bottom:12px}
-.summary p{font-size:14px;line-height:1.7;color:#8b949e;margin-bottom:12px}
-.summary p:last-child{margin-bottom:0}
-.highlight{color:#c9d1d9;font-weight:500}
 </style>
 </head>
 <body>
@@ -34,14 +29,6 @@ path.stream{transition:opacity .15s}
   <div id="tooltip"></div>
 </div>
 <div id="legend"></div>
-
-<div class="summary">
-  <h2>Key takeaways</h2>
-  <p><span class="highlight">Team lineages are tracked continuously</span> — Red Bull's stream includes Stewart (1997–99) and Jaguar (2000–04), Mercedes traces back through Brawn, Honda, and BAR, and Alpine flows from Benetton through Renault and Lotus. Hover any stream to isolate it and see exact points per year.</p>
-  <p><span class="highlight">The eras are visible at a glance</span> — Williams and McLaren dominating the early 90s, Ferrari's massive expansion under Schumacher from 1999–2004, Red Bull's explosive rise with Vettel from 2010, the Mercedes turbo-hybrid steamroller from 2014–2021, and then Verstappen's Red Bull dominance from 2022 onward.</p>
-  <p><span class="highlight">Williams' decline</span> is one of the starkest stories — from consistently the widest stream in the early 90s to a barely visible thread by the mid-2010s. Meanwhile, <span class="highlight">McLaren's resurgence</span> in 2024 stands out as a dramatic comeback after years in the midfield.</p>
-  <p>The overall width of the river grows over time, reflecting F1's expanding points system — particularly the jump in 2010 when wins went from 10 to 25 points, making the later era streams noticeably thicker.</p>
-</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
 <script>

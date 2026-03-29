@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F1 Youngest — Poles, Wins & Championships</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,-apple-system,sans-serif;background:#0d1117;color:#c9d1d9;padding:24px}
+h1{font-size:22px;font-weight:500;margin-bottom:4px;color:#e6edf3}
+.sub{font-size:13px;color:#8b949e;margin-bottom:20px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 18px;margin-bottom:16px;font-size:12px;color:#8b949e}
+.leg-item{display:flex;align-items:center;gap:5px}
+.swatch{width:12px;height:12px;border-radius:3px;display:inline-block;flex-shrink:0}
+#chart-wrap{position:relative;width:100%;max-width:1000px;margin:0 auto;height:680px}
+.summary{max-width:1000px;margin:32px auto 0;padding:24px;background:#161b22;border:1px solid #30363d;border-radius:12px}
+.summary h2{font-size:16px;font-weight:500;color:#e6edf3;margin-bottom:12px}
+.summary p{font-size:14px;line-height:1.7;color:#8b949e;margin-bottom:12px}
+.summary p:last-child{margin-bottom:0}
+.highlight{color:#c9d1d9;font-weight:500}
+</style>
+</head>
+<body>
+<h1>F1 youngest — poles, wins & championships</h1>
+<p class="sub">Top 5 youngest drivers to achieve each milestone, measured by age at time of achievement.</p>
+
+<div class="legend">
+  <span class="leg-item"><span class="swatch" style="background:#534AB7"></span>Youngest pole</span>
+  <span class="leg-item"><span class="swatch" style="background:#0F6E56"></span>Youngest win</span>
+  <span class="leg-item"><span class="swatch" style="background:#D85A30"></span>Youngest champion</span>
+</div>
+
+<div id="chart-wrap">
+  <canvas id="c"></canvas>
+</div>
+
+<div class="summary">
+  <h2>Key takeaways</h2>
+  <p><span class="highlight">Vettel</span> appears in all three lists — youngest pole, youngest win, and youngest champion. His 2008 Monza weekend for Toro Rosso (pole + win at 21) was one of the most stunning breakthrough performances in F1 history.</p>
+  <p><span class="highlight">Antonelli</span> just crashed into the top of the poles list and #2 on the wins list at the 2026 Chinese GP — at 19 he's nearly two full years younger than anyone else who'd taken pole before him.</p>
+  <p><span class="highlight">Verstappen</span> holds the race win record at just 18, on his debut race for Red Bull in Spain 2016 — a record that may never be broken given current super licence age rules.</p>
+  <p>The gap between categories is telling: the youngest pole came at ~19, the youngest win at ~18, but the youngest champion at ~23 — showing that sustained consistency over a full season takes a few more years of development even for prodigies.</p>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const txtCol = '#8b949e';
+const gridCol = 'rgba(255,255,255,.06)';
+
+const labels = [
+  'Antonelli (2026)','Vettel (2008)','Leclerc (2019)','Alonso (2003)','Verstappen (2019)',
+  '',
+  'Verstappen (2016)','Antonelli (2026)','Vettel (2008)','Leclerc (2019)','Alonso (2003)',
+  '',
+  'Vettel (2010)','Hamilton (2008)','Alonso (2005)','Verstappen (2021)','Fittipaldi (1972)'
+];
+
+const pole  = [19.55,21.20,21.45,21.65,21.84, null, null,null,null,null,null, null, null,null,null,null,null];
+const win   = [null,null,null,null,null, null, 18.62,19.55,21.20,21.88,22.07, null, null,null,null,null,null];
+const champ = [null,null,null,null,null, null, null,null,null,null,null, null, 23.37,23.82,24.16,24.20,25.75];
+
+const ageLabels = [
+  '19y 201d','21y 73d','21y 165d','21y 236d','21y 307d',
+  '',
+  '18y 228d','19y 200d','21y 73d','21y 320d','22y 26d',
+  '',
+  '23y 134d','23y 300d','24y 58d','24y 73d','25y 273d'
+];
+
+new Chart(document.getElementById('c'), {
+  type: 'bar',
+  data: {
+    labels: labels,
+    datasets: [
+      { label:'Youngest pole', data: pole, backgroundColor:'#534AB7', borderRadius:4, barPercentage:0.7 },
+      { label:'Youngest win', data: win, backgroundColor:'#0F6E56', borderRadius:4, barPercentage:0.7 },
+      { label:'Youngest champion', data: champ, backgroundColor:'#D85A30', borderRadius:4, barPercentage:0.7 }
+    ]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        backgroundColor: '#161b22',
+        borderColor: '#30363d',
+        borderWidth: 1,
+        titleColor: '#e6edf3',
+        bodyColor: '#c9d1d9',
+        callbacks: {
+          label: function(ctx) {
+            return '  Age: ' + ageLabels[ctx.dataIndex];
+          }
+        }
+      }
+    },
+    scales: {
+      x: {
+        min: 16,
+        max: 27,
+        title: { display: true, text: 'Age (years)', color: txtCol, font: { size: 13 } },
+        ticks: { color: txtCol, font: { size: 12 }, stepSize: 1 },
+        grid: { color: gridCol }
+      },
+      y: {
+        ticks: {
+          color: function(ctx) {
+            if (ctx.index === 5 || ctx.index === 11) return 'transparent';
+            return '#c9d1d9';
+          },
+          font: { size: 13 }
+        },
+        grid: { display: false }
+      }
+    }
+  },
+  plugins: [{
+    id: 'ageAnnotations',
+    afterDatasetsDraw(chart) {
+      const ctx = chart.ctx;
+      ctx.font = '12px system-ui, sans-serif';
+      ctx.fillStyle = 'rgba(255,255,255,.45)';
+      ctx.textBaseline = 'middle';
+      chart.data.datasets.forEach((ds, di) => {
+        ds.data.forEach((val, i) => {
+          if (val === null) return;
+          const meta = chart.getDatasetMeta(di);
+          const bar = meta.data[i];
+          ctx.fillText(ageLabels[i], bar.x + 8, bar.y);
+        });
+      });
+    }
+  }]
+});
+</script>
+</body>
+</html>
