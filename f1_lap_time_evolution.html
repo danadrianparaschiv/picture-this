@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F1 Lap Time Evolution — How Fast Is Fast?</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,-apple-system,sans-serif;background:#0d1117;color:#c9d1d9;padding:24px}
+h1{font-size:22px;font-weight:500;margin-bottom:4px;color:#e6edf3}
+.sub{font-size:13px;color:#8b949e;margin-bottom:20px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 18px;margin-bottom:16px;font-size:12px;color:#8b949e}
+.leg-item{display:flex;align-items:center;gap:5px}
+.swatch{width:12px;height:3px;border-radius:2px;display:inline-block;flex-shrink:0}
+#chart-wrap{position:relative;width:100%;max-width:1100px;margin:0 auto;height:480px}
+.era-bar{display:flex;gap:2px;max-width:1100px;margin:12px auto 0;font-size:11px;height:28px}
+.era-seg{display:flex;align-items:center;justify-content:center;border-radius:4px;color:#c9d1d9;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 6px}
+.note{max-width:1100px;margin:12px auto 0;font-size:11px;color:#484f58;font-style:italic}
+.summary{max-width:1100px;margin:32px auto 0;padding:24px;background:#161b22;border:1px solid #30363d;border-radius:12px}
+.summary h2{font-size:16px;font-weight:500;color:#e6edf3;margin-bottom:12px}
+.summary p{font-size:14px;line-height:1.7;color:#8b949e;margin-bottom:12px}
+.summary p:last-child{margin-bottom:0}
+.highlight{color:#c9d1d9;font-weight:500}
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #8b949e;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+  margin-bottom: 24px;
+}
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+</style>
+</head>
+<body>
+<a href="index.html" class="back-button">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+  Back to Gallery
+</a>
+<h1>F1 lap time evolution — the relentless pursuit of speed</h1>
+<p class="sub">Pole position lap times at three iconic circuits, 1970–2025. Lower means faster.</p>
+
+<div class="legend">
+  <span class="leg-item"><span class="swatch" style="background:#E8002D"></span>Monza (5.79 km) — the temple of speed</span>
+  <span class="leg-item"><span class="swatch" style="background:#27F4D2"></span>Spa-Francorchamps (7.00 km) — the ultimate test</span>
+  <span class="leg-item"><span class="swatch" style="background:#FF8700"></span>Monaco (3.34 km) — the jewel in the crown</span>
+</div>
+
+<div id="chart-wrap">
+  <canvas id="c"></canvas>
+</div>
+
+<div class="era-bar">
+  <div class="era-seg" style="flex:4;background:rgba(83,74,183,.25)">DFV era</div>
+  <div class="era-seg" style="flex:5;background:rgba(15,110,86,.25)">Turbo era</div>
+  <div class="era-seg" style="flex:4;background:rgba(216,90,48,.25)">3.5L N/A</div>
+  <div class="era-seg" style="flex:5;background:rgba(54,113,198,.25)">V10 → V8</div>
+  <div class="era-seg" style="flex:5;background:rgba(192,45,75,.25)">Grooved tyres</div>
+  <div class="era-seg" style="flex:6;background:rgba(39,244,210,.15)">V6 turbo-hybrid</div>
+  <div class="era-seg" style="flex:3;background:rgba(232,0,45,.15)">Ground effect</div>
+</div>
+
+<p class="note">* Times are approximate pole positions. Track layouts changed over the years — Monza gained chicanes in 1972, Spa was shortened from 14km to 7km in 1979, and Monaco has had incremental modifications. Direct year-to-year comparisons should account for these changes.</p>
+
+<div class="summary">
+  <h2>The story the curves tell</h2>
+  <p>This chart captures something remarkable: despite decades of regulation changes designed to slow cars down, F1 keeps getting faster. Every time the FIA takes away speed, engineers find it somewhere else.</p>
+  <p><span class="highlight">Monza</span> tells the clearest story — from ~1:35 in the early 70s (after chicanes were added to tame 200mph slipstreaming battles) to 1:18.8 in 2025. That's 17 seconds faster around the same circuit. At Monza's average speed of 264 km/h, those 17 seconds represent a gap of about 1.2 kilometers — nearly a quarter of the lap.</p>
+  <p><span class="highlight">Spa-Francorchamps</span> shows the most dramatic single drop — the old 14km circuit was replaced by the current 7km layout in 1979, which is why the line appears to jump. But even on the shorter track, times have dropped from ~2:07 to ~1:43 over four decades.</p>
+  <p><span class="highlight">Monaco</span> is the most impressive in some ways — gaining time on streets lined with barriers, where every tenth of a second means getting closer to the wall. The drop from ~1:27 in the early 70s to ~1:10 today shows how much driver confidence has grown alongside car capability.</p>
+  <p>The visible "bumps" in the curves correspond to regulation resets: <span class="highlight">grooved tyres in 1998</span> (times got slower), <span class="highlight">V6 turbo-hybrids in 2014</span> (brief slowdown), and <span class="highlight">ground effect in 2022</span> (another reset). Each time, within 2–3 years, the cars were faster than ever. The engineering ingenuity of F1 teams is the constant thread: give them a rulebook, and they'll find the loophole that makes the car faster.</p>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+function toSec(m,s) { return m*60+s; }
+
+const years = [1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025];
+
+const monza = [
+  null,null,toSec(1,35.6),toSec(1,34.8),toSec(1,33.2),toSec(1,32.2),toSec(1,41.4),toSec(1,38.1),toSec(1,37.5),toSec(1,34.6),
+  null,toSec(1,33.5),toSec(1,28.5),toSec(1,29.1),toSec(1,26.6),toSec(1,25.1),toSec(1,24.1),toSec(1,23.5),toSec(1,25.9),toSec(1,23.7),
+  toSec(1,22.5),toSec(1,21.1),toSec(1,22.2),toSec(1,21.2),toSec(1,23.0),toSec(1,24.5),toSec(1,24.2),toSec(1,22.3),toSec(1,25.0),toSec(1,22.4),
+  toSec(1,23.8),toSec(1,22.7),toSec(1,20.3),toSec(1,20.9),toSec(1,20.1),toSec(1,20.9),toSec(1,21.5),toSec(1,21.5),toSec(1,21.0),toSec(1,24.1),
+  toSec(1,21.9),toSec(1,22.3),toSec(1,24.0),toSec(1,23.8),toSec(1,24.1),toSec(1,23.4),toSec(1,21.1),toSec(1,35.6),toSec(1,19.1),toSec(1,19.3),
+  toSec(1,18.9),toSec(1,19.6),toSec(1,20.2),toSec(1,20.2),toSec(1,19.3),toSec(1,18.8)
+];
+
+const spa = [
+  toSec(3,28.0),toSec(3,20.8),null,null,null,null,null,null,null,toSec(2,7.0),
+  toSec(2,8.1),toSec(2,5.6),toSec(2,4.7),toSec(2,5.4),toSec(2,1.2),toSec(1,59.3),toSec(1,54.3),toSec(1,53.2),toSec(1,53.7),toSec(1,50.9),
+  toSec(1,50.4),toSec(1,47.8),toSec(1,50.5),toSec(1,47.6),toSec(1,55.3),toSec(1,54.4),toSec(1,50.6),toSec(1,49.8),toSec(1,48.7),toSec(1,50.3),
+  toSec(1,50.6),toSec(1,52.1),toSec(1,43.7),toSec(1,45.1),toSec(1,56.1),toSec(1,46.4),toSec(1,45.7),toSec(1,45.9),toSec(1,47.9),toSec(1,46.3),
+  toSec(1,45.7),toSec(1,43.5),toSec(1,47.6),toSec(1,48.1),toSec(2,5.6),toSec(1,47.2),toSec(1,46.7),toSec(1,42.6),toSec(1,41.6),toSec(1,42.5),
+  toSec(1,41.3),toSec(1,43.7),toSec(1,43.7),toSec(1,43.0),toSec(1,43.0),toSec(1,43.2)
+];
+
+const monaco = [
+  toSec(1,24.6),toSec(1,23.2),toSec(1,21.5),toSec(1,27.5),toSec(1,26.3),toSec(1,26.4),toSec(1,29.7),toSec(1,26.8),toSec(1,26.2),toSec(1,26.5),
+  toSec(1,24.8),toSec(1,25.7),toSec(1,23.3),toSec(1,24.3),toSec(1,22.7),toSec(1,20.5),toSec(1,22.6),toSec(1,23.0),toSec(1,23.6),toSec(1,22.6),
+  toSec(1,21.3),toSec(1,20.3),toSec(1,19.5),toSec(1,20.6),toSec(1,18.6),toSec(1,22.4),toSec(1,20.4),toSec(1,18.2),toSec(1,19.8),toSec(1,20.5),
+  toSec(1,19.5),toSec(1,17.4),toSec(1,16.7),toSec(1,15.1),toSec(1,14.4),toSec(1,13.9),toSec(1,13.9),toSec(1,15.7),toSec(1,15.8),toSec(1,14.9),
+  toSec(1,13.8),toSec(1,13.6),toSec(1,14.4),toSec(1,13.9),toSec(1,15.9),toSec(1,15.1),toSec(1,13.6),toSec(1,12.2),toSec(1,11.0),toSec(1,10.2),
+  null,toSec(1,10.3),toSec(1,11.4),toSec(1,11.4),toSec(1,10.3),toSec(1,10.6)
+];
+
+const txtCol = '#8b949e';
+const gridCol = 'rgba(255,255,255,.06)';
+
+function secToLabel(s) {
+  const m = Math.floor(s / 60);
+  const sec = (s % 60).toFixed(1);
+  return m + ':' + (sec < 10 ? '0' : '') + sec;
+}
+
+const annotations = [
+  {year:1979,label:'Spa rebuilt (14km→7km)'},
+  {year:1983,label:'Turbo era begins'},
+  {year:1989,label:'Turbo ban'},
+  {year:1998,label:'Grooved tyres'},
+  {year:2009,label:'Slick tyres return'},
+  {year:2014,label:'V6 turbo-hybrid'},
+  {year:2022,label:'Ground effect'}
+];
+
+new Chart(document.getElementById('c'), {
+  type: 'line',
+  data: {
+    labels: years,
+    datasets: [
+      {
+        label: 'Monza',
+        data: monza,
+        borderColor: '#E8002D',
+        backgroundColor: 'rgba(232,0,45,.1)',
+        borderWidth: 2.5,
+        pointRadius: 2,
+        pointHoverRadius: 6,
+        tension: 0.3,
+        spanGaps: true,
+        fill: false
+      },
+      {
+        label: 'Spa',
+        data: spa,
+        borderColor: '#27F4D2',
+        backgroundColor: 'rgba(39,244,210,.1)',
+        borderWidth: 2.5,
+        pointRadius: 2,
+        pointHoverRadius: 6,
+        tension: 0.3,
+        spanGaps: true,
+        fill: false
+      },
+      {
+        label: 'Monaco',
+        data: monaco,
+        borderColor: '#FF8700',
+        backgroundColor: 'rgba(255,135,0,.1)',
+        borderWidth: 2.5,
+        pointRadius: 2,
+        pointHoverRadius: 6,
+        tension: 0.3,
+        spanGaps: true,
+        fill: false
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    interaction: {
+      mode: 'index',
+      intersect: false
+    },
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        backgroundColor: '#161b22',
+        borderColor: '#30363d',
+        borderWidth: 1,
+        titleColor: '#e6edf3',
+        bodyColor: '#c9d1d9',
+        callbacks: {
+          label: function(ctx) {
+            if (ctx.raw === null) return null;
+            return '  ' + ctx.dataset.label + ': ' + secToLabel(ctx.raw);
+          }
+        }
+      }
+    },
+    scales: {
+      x: {
+        ticks: {
+          color: txtCol,
+          font: { size: 12 },
+          maxRotation: 0,
+          autoSkip: true,
+          maxTicksLimit: 14
+        },
+        grid: { color: gridCol }
+      },
+      y: {
+        reverse: true,
+        title: { display: true, text: 'Pole lap time (lower = faster)', color: txtCol, font: { size: 13 } },
+        ticks: {
+          color: txtCol,
+          font: { size: 12 },
+          callback: function(v) { return secToLabel(v); }
+        },
+        grid: { color: gridCol }
+      }
+    }
+  },
+  plugins: [{
+    id: 'verticalAnnotations',
+    afterDraw(chart) {
+      const ctx = chart.ctx;
+      const xScale = chart.scales.x;
+      const yScale = chart.scales.y;
+
+      annotations.forEach(a => {
+        const idx = years.indexOf(a.year);
+        if (idx === -1) return;
+        const x = xScale.getPixelForValue(idx);
+
+        ctx.save();
+        ctx.strokeStyle = 'rgba(255,255,255,.12)';
+        ctx.setLineDash([4,4]);
+        ctx.beginPath();
+        ctx.moveTo(x, yScale.top);
+        ctx.lineTo(x, yScale.bottom);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        ctx.font = '10px system-ui, sans-serif';
+        ctx.fillStyle = 'rgba(255,255,255,.35)';
+        ctx.textAlign = 'center';
+        ctx.save();
+        ctx.translate(x, yScale.top - 6);
+        ctx.fillText(a.label, 0, 0);
+        ctx.restore();
+        ctx.restore();
+      });
+    }
+  }]
+});
+</script>
+</body>
+</html>
