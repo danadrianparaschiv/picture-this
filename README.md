@@ -12,6 +12,7 @@ This gallery is organized into two thematic sections:
 Exploring systemic challenges and data-driven insights into the Romanian educational landscape over the last 25 years.
 *   **[Criza educației din România](educatia_romaneasca_in_ultimii_25_ani.html)**: An analysis of chronical underfunding, system-wide instability (ministers), and long-term exam results.
 *   **[Criza resursei umane](romania_criza_profesori.html)**: A deep dive into teacher aging, qualification gaps, and salary challenges in the pre-university system.
+*   **[Criza resurselor materiale](romania_criza_resurse_materiale.html)**: Infrastructure degradation, utility gaps, and material deprivation among students.
 
 ### 🏁 Hobby: Formula 1
 A curated set of interactive visualizations exploring F1's history, engineering, and record-breaking drivers.

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Criza resurselor materiale din educația românească</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,-apple-system,sans-serif;background:#0d1117;color:#c9d1d9;padding:24px}
+h1{font-size:22px;font-weight:500;margin-bottom:4px;color:#e6edf3}
+.sub{font-size:14px;color:#8b949e;margin-bottom:24px;max-width:1000px;line-height:1.6}
+.stat-row{display:flex;gap:12px;max-width:1100px;margin:0 auto 24px;flex-wrap:wrap}
+.stat-card{flex:1;min-width:130px;background:#161b22;border:1px solid #30363d;border-radius:8px;padding:14px 16px}
+.stat-label{font-size:11px;color:#484f58;margin-bottom:4px}
+.stat-val{font-size:24px;font-weight:500}
+.stat-context{font-size:11px;color:#484f58;margin-top:4px}
+.panel{max-width:1100px;margin:0 auto 8px}
+.panel-title{font-size:14px;font-weight:500;color:#e6edf3;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.panel-sub{font-size:11px;color:#484f58;margin-bottom:6px}
+.chart-wrap{position:relative;width:100%;height:220px}
+.chart-wrap.short{height:180px}
+.chart-wrap.tall{height:300px}
+.swatch{width:10px;height:10px;border-radius:2px;display:inline-block}
+.divider{max-width:1100px;margin:16px auto;border-top:1px solid #21262d}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:1100px;margin:0 auto 16px}
+@media(max-width:700px){.grid-2{grid-template-columns:1fr}}
+.summary{max-width:1100px;margin:32px auto 0;padding:24px;background:#161b22;border:1px solid #30363d;border-radius:12px}
+.summary h2{font-size:16px;font-weight:500;color:#e6edf3;margin-bottom:12px}
+.summary p{font-size:14px;line-height:1.7;color:#8b949e;margin-bottom:12px}
+.summary p:last-child{margin-bottom:0}
+.highlight{color:#c9d1d9;font-weight:500}
+.note{max-width:1100px;margin:8px auto 0;font-size:11px;color:#484f58;font-style:italic}
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #8b949e;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+  margin-bottom: 24px;
+}
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+</style>
+</head>
+<body>
+<a href="index.html" class="back-button">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+  Înapoi la Galerie
+</a>
+<h1>Criza resurselor materiale din educația românească</h1>
+<p class="sub">Școli fără apă curentă, copii fără rechizite, gospodării fără internet, latrine în curtea școlii în 2025. Când statul nu investește în educație, copiii plătesc prețul — cu sănătatea, demnitatea și viitorul lor.</p>
+
+<div class="stat-row">
+  <div class="stat-card">
+    <div class="stat-label">Școli fără toaletă interioară</div>
+    <div class="stat-val" style="color:#E24B4A">~200</div>
+    <div class="stat-context">Încă existente în 2025</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Școli fără apă curentă</div>
+    <div class="stat-val" style="color:#D85A30">1.900</div>
+    <div class="stat-context">16% din totalul clădirilor (2024)</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Copii în deprivare materială</div>
+    <div class="stat-val" style="color:#EF9F27">28%</div>
+    <div class="stat-context">Sub 17 ani (INS, 2024)</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Copii fără rechizite (rural)</div>
+    <div class="stat-val" style="color:#534AB7">16%</div>
+    <div class="stat-context">40% fără cărți (World Vision)</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Beneficiari tichete educaționale</div>
+    <div class="stat-val" style="color:#5DCAA5">670k</div>
+    <div class="stat-context">500 lei/elev/an (fonduri UE)</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Școli comasate în 2025</div>
+    <div class="stat-val" style="color:#C92D4B">515</div>
+    <div class="stat-context">Legea 141/2025 (Bolojan)</div>
+  </div>
+</div>
+
+<div class="panel">
+  <div class="panel-title"><span class="swatch" style="background:#E24B4A"></span> Infrastructura școlară — problema care nu dispare</div>
+  <div class="panel-sub">Evoluția numărului de școli cu toaleta în curtea școlii, 2018–2025</div>
+  <div class="chart-wrap short"><canvas id="c1"></canvas></div>
+</div>
+
+<div class="divider"></div>
+
+<div class="grid-2">
+  <div>
+    <div class="panel-title"><span class="swatch" style="background:#D85A30"></span> Accesul la utilități — rural vs urban</div>
+    <div class="panel-sub">% populație conectată la apă curentă și canalizare (2024)</div>
+    <div class="chart-wrap short"><canvas id="c2"></canvas></div>
+  </div>
+  <div>
+    <div class="panel-title"><span class="swatch" style="background:#534AB7"></span> Deprivarea copiilor din mediul rural</div>
+    <div class="panel-sub">Studiu World Vision România 2024 — ce le lipsește</div>
+    <div class="chart-wrap short"><canvas id="c3"></canvas></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="panel">
+  <div class="panel-title"><span class="swatch" style="background:#5DCAA5"></span> Accesul la resurse digitale — România în context european</div>
+  <div class="panel-sub">Competențe digitale de bază și utilizarea internetului pentru învățare</div>
+  <div class="chart-wrap"><canvas id="c4"></canvas></div>
+</div>
+
+<div class="divider"></div>
+
+<div class="grid-2">
+  <div>
+    <div class="panel-title"><span class="swatch" style="background:#EF9F27"></span> Copii neînrolați în învățământ</div>
+    <div class="panel-sub">România vs media OCDE — pe grupe de vârstă (%)</div>
+    <div class="chart-wrap short"><canvas id="c5"></canvas></div>
+  </div>
+  <div>
+    <div class="panel-title"><span class="swatch" style="background:#FF87BC"></span> Deprivarea materială a copiilor — România vs UE</div>
+    <div class="panel-sub">% copii sub 17 ani în deprivare materială și socială (2024)</div>
+    <div class="chart-wrap short"><canvas id="c6"></canvas></div>
+  </div>
+</div>
+
+<p class="note">Surse: Ministerul Educației, INS, Eurostat, OCDE Education at a Glance 2025, World Vision România (Bunăstarea copilului din mediul rural, 2024), Strategia pentru modernizarea infrastructurii educaționale 2018–2023.</p>
+
+<div class="summary">
+  <h2>Când școala nu are nici apă curentă</h2>
+  <p>În 2018, aproximativ <span class="highlight">4.200 de școli din România nu aveau grupuri sanitare în interior</span>, afectând peste 155.000 de elevi. Dintre acestea, 2.200 aveau latrine uscate, fără apă curentă și fără canalizare. Proporția era covârșitor rurală: 38% dintre școlile de la sate vs 7% din cele urbane. În 2025, după ani de promisiuni și fonduri alocate, încă <span class="highlight">~200 de școli au toaleta în curte</span>, iar 1.900 de clădiri școlare (16%) nu au acces la apă curentă.</p>
+  <p>Problema nu e doar de confort, ci de sănătate și demnitate. Copiii de grădiniță sunt însoțiți de educatoare prin curtea școlii, iarna, la -15°C, pentru a ajunge la latrină. Părinții, profesorii și autoritățile locale spun că „nu se plâng". Dar copiii nu se plâng pentru că nu cunosc altceva.</p>
+  <p>La nivel de gospodărie, situația e la fel de gravă. <span class="highlight">59% din locuitorii rurali nu au acces la rețeaua publică de apă</span>, iar 84% nu sunt racordați la canalizare. România are cea mai mică rată de conectare la utilități de bază din întreaga UE.</p>
+  <p><span class="highlight">Deprivarea materială lovește direct copiii.</span> Studiul World Vision 2024 arată că 25% dintre copiii din rural merg flămânzi la culcare, 16% nu au rechizite, 40% nu au cărți, iar aproape jumătate din gospodării nu au calculator sau laptop. 14% nu au acces la internet. Statul oferă tichete educaționale de 500 lei/an pentru 670.000 de copii vulnerabili — dar când rechizitele s-au scumpit cu 10,7% într-un singur an, suma acoperă tot mai puțin.</p>
+  <p>Digital, România e pe <span class="highlight">ultimul loc în UE</span> la utilizarea internetului pentru cursuri sau materiale de învățare (Eurostat, 2024). Doar 28% dintre cetățeni au competențe digitale de bază. Pandemia a expus brutal acest decalaj: 250.000 de elevi n-au putut participa la cursurile online, iar doar 60% au participat efectiv.</p>
+  <p>Comasarea a 515 școli în 2025 prin Legea Bolojan a agravat problema accesului: copiii din sate mici trebuie acum să navigheze distanțe mai mari, pe drumuri neasfaltate, fără transport școlar asigurat. Pentru mulți, „accesul la educație" a devenit o expresie abstractă — nu o realitate trăită.</p>
+  <p>Toate aceste lipsuri materiale <span class="highlight">nu sunt cauze separate ale eșecului educațional</span> — sunt simptome ale aceluiași cerc vicios: subfinanțare cronică → infrastructură degradată → copii care nu pot învăța → abandon școlar → sărăcie → și ciclul se repetă, generație după generație.</p>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const txtCol='#8b949e', gridCol='rgba(255,255,255,.06)';
+const ttCfg = {backgroundColor:'#161b22',borderColor:'#30363d',borderWidth:1,titleColor:'#e6edf3',bodyColor:'#c9d1d9'};
+
+new Chart(document.getElementById('c1'),{
+  type:'bar',
+  data:{
+    labels:['2018','2019','2020','2021','2022','2023','2024','2025'],
+    datasets:[{
+      label:'Școli cu toaleta în curte',
+      data:[4200,1170,1100,900,600,350,230,200],
+      backgroundColor:function(ctx){return ctx.dataIndex>=6?'#E24B4A':'rgba(226,75,74,.4)'},
+      borderRadius:4,barPercentage:0.6
+    }]
+  },
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:Object.assign({},ttCfg,{callbacks:{label:ctx=>ctx.raw.toLocaleString()+' școli'}})},scales:{x:{ticks:{color:txtCol,font:{size:11}},grid:{display:false}},y:{min:0,ticks:{color:txtCol,font:{size:11},callback:v=>v>=1000?(v/1000)+'k':v},grid:{color:gridCol}}}}
+});
+
+new Chart(document.getElementById('c2'),{
+  type:'bar',
+  data:{
+    labels:['Apă curentă','Canalizare'],
+    datasets:[
+      {label:'Urban',data:[95,78],backgroundColor:'#5DCAA5',borderRadius:4,barPercentage:0.35},
+      {label:'Rural',data:[41,16],backgroundColor:'#D85A30',borderRadius:4,barPercentage:0.35},
+      {label:'Media UE',data:[94,81],backgroundColor:'#6692FF',borderRadius:4,barPercentage:0.35}
+    ]
+  },
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:txtCol,font:{size:10},padding:8,usePointStyle:true,pointStyleWidth:10}},tooltip:Object.assign({},ttCfg,{callbacks:{label:ctx=>'  '+ctx.dataset.label+': '+ctx.raw+'%'}})},scales:{x:{ticks:{color:txtCol,font:{size:11}},grid:{display:false}},y:{max:100,ticks:{color:txtCol,font:{size:11},callback:v=>v+'%'},grid:{color:gridCol}}}}
+});
+
+new Chart(document.getElementById('c3'),{
+  type:'bar',
+  data:{
+    labels:['Merg flămânzi\nla culcare','Fără cărți\nacasă','Fără calculator\nsau laptop','Fără\nrechizite','Fără acces\nla internet','Se împrumută\npt. alimente'],
+    datasets:[{label:'%',data:[25,40,48,16,14,40],backgroundColor:['#534AB7','#7F77DD','#7F77DD','#534AB7','#534AB7','#7F77DD'],borderRadius:4,barPercentage:0.6}]
+  },
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:Object.assign({},ttCfg,{callbacks:{label:ctx=>ctx.raw+'% din familiile rurale'}})},scales:{x:{ticks:{color:txtCol,font:{size:9},maxRotation:0},grid:{display:false}},y:{max:55,ticks:{color:txtCol,font:{size:11},callback:v=>v+'%'},grid:{color:gridCol}}}}
+});
+
+new Chart(document.getElementById('c4'),{
+  type:'bar',
+  data:{
+    labels:['Competențe digitale\nde bază (% adulți)','Utilizare internet\npt. învățare (%)','Acces internet\ngospodării (%)'],
+    datasets:[
+      {label:'România',data:[28,15,88],backgroundColor:'#E24B4A',borderRadius:4,barPercentage:0.35},
+      {label:'Media UE',data:[56,38,93],backgroundColor:'#5DCAA5',borderRadius:4,barPercentage:0.35}
+    ]
+  },
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:txtCol,font:{size:10},padding:8,usePointStyle:true,pointStyleWidth:10}},tooltip:Object.assign({},ttCfg,{callbacks:{label:ctx=>'  '+ctx.dataset.label+': '+ctx.raw+'%'}})},scales:{x:{ticks:{color:txtCol,font:{size:9},maxRotation:0},grid:{display:false}},y:{max:100,ticks:{color:txtCol,font:{size:11},callback:v=>v+'%'},grid:{color:gridCol}}}}
+});
+
+new Chart(document.getElementById('c5'),{
+  type:'bar',
+  data:{
+    labels:['3–5 ani\n(preșcolar)','6–14 ani','15–19 ani'],
+    datasets:[
+      {label:'România',data:[25,16,32],backgroundColor:'#EF9F27',borderRadius:4,barPercentage:0.35},
+      {label:'Media OCDE',data:[8,2,16],backgroundColor:'#6692FF',borderRadius:4,barPercentage:0.35}
+    ]
+  },
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:txtCol,font:{size:10},padding:8,usePointStyle:true,pointStyleWidth:10}},tooltip:Object.assign({},ttCfg,{callbacks:{label:ctx=>'  '+ctx.dataset.label+': '+ctx.raw+'% neînrolați'}})},scales:{x:{ticks:{color:txtCol,font:{size:10},maxRotation:0},grid:{display:false}},y:{max:40,ticks:{color:txtCol,font:{size:11},callback:v=>v+'%'},grid:{color:gridCol}}}}
+});
+
+new Chart(document.getElementById('c6'),{
+  type:'bar',
+  data:{
+    labels:['Copii <17 ani','Familii 2 adulți\n+ 3+ copii','Regiunea\nSud-Est'],
+    datasets:[
+      {label:'România',data:[28,43.5,40.7],backgroundColor:'#FF87BC',borderRadius:4,barPercentage:0.35},
+      {label:'Media UE',data:[13,18,null],backgroundColor:'#6692FF',borderRadius:4,barPercentage:0.35}
+    ]
+  },
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:txtCol,font:{size:10},padding:8,usePointStyle:true,pointStyleWidth:10}},tooltip:Object.assign({},ttCfg,{callbacks:{label:ctx=>ctx.raw!==null?'  '+ctx.dataset.label+': '+ctx.raw+'%':null}})},scales:{x:{ticks:{color:txtCol,font:{size:9},maxRotation:0},grid:{display:false}},y:{max:50,ticks:{color:txtCol,font:{size:11},callback:v=>v+'%'},grid:{color:gridCol}}}}
+});
+</script>
+</body>
+</html>
