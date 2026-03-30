@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Criza resursei umane din învățământul românesc</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,-apple-system,sans-serif;background:#0d1117;color:#c9d1d9;padding:24px}
+h1{font-size:22px;font-weight:500;margin-bottom:4px;color:#e6edf3}
+.sub{font-size:14px;color:#8b949e;margin-bottom:24px;max-width:1000px;line-height:1.6}
+.stat-row{display:flex;gap:12px;max-width:1100px;margin:0 auto 24px;flex-wrap:wrap}
+.stat-card{flex:1;min-width:140px;background:#161b22;border:1px solid #30363d;border-radius:8px;padding:14px 16px}
+.stat-label{font-size:11px;color:#484f58;margin-bottom:4px}
+.stat-val{font-size:24px;font-weight:500}
+.stat-context{font-size:11px;color:#484f58;margin-top:4px}
+.panel{max-width:1100px;margin:0 auto 8px}
+.panel-title{font-size:14px;font-weight:500;color:#e6edf3;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.panel-sub{font-size:11px;color:#484f58;margin-bottom:6px}
+.chart-wrap{position:relative;width:100%;height:220px}
+.chart-wrap.short{height:180px}
+.chart-wrap.tall{height:280px}
+.swatch{width:10px;height:10px;border-radius:2px;display:inline-block}
+.divider{max-width:1100px;margin:16px auto;border-top:1px solid #21262d}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:1100px;margin:0 auto 16px}
+@media(max-width:700px){.grid-2{grid-template-columns:1fr}}
+.summary{max-width:1100px;margin:32px auto 0;padding:24px;background:#161b22;border:1px solid #30363d;border-radius:12px}
+.summary h2{font-size:16px;font-weight:500;color:#e6edf3;margin-bottom:12px}
+.summary p{font-size:14px;line-height:1.7;color:#8b949e;margin-bottom:12px}
+.summary p:last-child{margin-bottom:0}
+.highlight{color:#c9d1d9;font-weight:500}
+.legend-row{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:6px;font-size:11px;color:#8b949e}
+.legend-row span{display:flex;align-items:center;gap:4px}
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #8b949e;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+  margin-bottom: 24px;
+}
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+</style>
+</head>
+<body>
+<a href="index.html" class="back-button">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+  Înapoi la Galerie
+</a>
+<h1>Criza resursei umane din învățământul preuniversitar românesc</h1>
+<p class="sub">Profesorii îmbătrânesc, tinerii nu mai intră în sistem, cei care intră nu sunt suficient de pregătiți, posturile rămân vacante, iar salariile nu pot concura cu piața privată. Mediul rural suportă cea mai mare presiune. Consecința: calitatea educației se erodează an de an.</p>
+
+<div class="stat-row">
+  <div class="stat-card">
+    <div class="stat-label">Posturi tăiate din total (2025)</div>
+    <div class="stat-val" style="color:#E24B4A">~14.000</div>
+    <div class="stat-context">Total: de la 307.900 → 293.852</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Profesori sub 30 ani (gimnaziu)</div>
+    <div class="stat-val" style="color:#EF9F27">8%</div>
+    <div class="stat-context">Era 13% în 2013</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Profesori peste 50 ani</div>
+    <div class="stat-val" style="color:#D85A30">32%</div>
+    <div class="stat-context">O treime din corp se va pensiona</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Salariu brut anual începător</div>
+    <div class="stat-val" style="color:#534AB7">~€9.000</div>
+    <div class="stat-context">/an. Printre cele mai mici din UE</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Elevi per profesor (primar)</div>
+    <div class="stat-val" style="color:#C92D4B">18,4</div>
+    <div class="stat-context">Cel mai mare raport din UE</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Titularizare 2025 (note ≥ 7)</div>
+    <div class="stat-val" style="color:#FF87BC">43,5%</div>
+    <div class="stat-context">56,5% nu pot fi titulari</div>
+  </div>
+</div>
+
+<div class="grid-2">
+  <div>
+    <div class="panel-title"><span class="swatch" style="background:#EF9F27"></span> Îmbătrânirea corpului didactic (gimnaziu)</div>
+    <div class="panel-sub">Ponderea profesorilor sub 30 ani vs peste 50 ani, 2013–2023</div>
+    <div class="chart-wrap short"><canvas id="c1"></canvas></div>
+  </div>
+  <div>
+    <div class="panel-title"><span class="swatch" style="background:#E24B4A"></span> Total posturi aprobate în sistemul preuniversitar (mii)</div>
+    <div class="panel-sub">Numărul total de posturi didactice aprobate prin HG (titulari + suplinitori + plata cu ora). Scăderea din 2025-26 = tăierea a ~14.000 posturi.</div>
+    <div class="chart-wrap short"><canvas id="c2"></canvas></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="panel">
+  <div class="panel-title"><span class="swatch" style="background:#FF87BC"></span> Gradul de calificare — rezultate la Titularizare (% candidați cu note ≥ 7)</div>
+  <div class="panel-sub">Nota 7 = prag pentru titularizare (angajare pe perioadă nedeterminată). Nota 5 = prag minim pentru suplinire. Sub 5 = picat.</div>
+  <div class="chart-wrap"><canvas id="cT1"></canvas></div>
+  <div class="legend-row">
+    <span><span class="swatch" style="background:#FF87BC"></span> Note ≥ 7 (pot fi titulari)</span>
+    <span><span class="swatch" style="background:#484f58"></span> Note 5–6,99 (pot fi suplinitori)</span>
+    <span><span class="swatch" style="background:#E24B4A"></span> Note sub 5 (picați)</span>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="grid-2">
+  <div>
+    <div class="panel-title"><span class="swatch" style="background:#ED93B1"></span> Distribuția notelor la Titularizare 2025</div>
+    <div class="panel-sub">Din ~31.000 lucrări evaluate: cine poate preda și cine nu</div>
+    <div class="chart-wrap short"><canvas id="cT2"></canvas></div>
+  </div>
+  <div>
+    <div class="panel-title"><span class="swatch" style="background:#EF9F27"></span> Promoția curentă vs toți candidații (note ≥ 7)</div>
+    <div class="panel-sub">Absolvenții din anul curent obțin rate și mai mici de promovare</div>
+    <div class="chart-wrap short"><canvas id="cT3"></canvas></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="panel">
+  <div class="panel-title"><span class="swatch" style="background:#534AB7"></span> Salariul brut anual de start al profesorilor — comparație UE (€)</div>
+  <div class="panel-sub">Date Eurydice 2021/2022. România se află printre ultimele țări din UE.</div>
+  <div class="chart-wrap tall"><canvas id="c3"></canvas></div>
+</div>
+
+<div class="divider"></div>
+
+<div class="grid-2">
+  <div>
+    <div class="panel-title"><span class="swatch" style="background:#D85A30"></span> Decalajul rural–urban în România</div>
+    <div class="panel-sub">Aceleași metrici, diferențe uriașe în funcție de mediul de rezidență (date 2024)</div>
+    <div class="chart-wrap short"><canvas id="c4"></canvas></div>
+  </div>
+  <div>
+    <div class="panel-title"><span class="swatch" style="background:#5DCAA5"></span> România vs media UE / OCDE</div>
+    <div class="panel-sub">Indicatori naționali comparați cu benchmark-uri europene</div>
+    <div class="chart-wrap short"><canvas id="c4b"></canvas></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="grid-2">
+  <div>
+    <div class="panel-title"><span class="swatch" style="background:#0F6E56"></span> De ce pleacă profesorii din sistem?</div>
+    <div class="panel-sub">Principalele motive raportate — sinteză calitativă</div>
+    <div class="chart-wrap short"><canvas id="c5"></canvas></div>
+  </div>
+  <div>
+    <div class="panel-title"><span class="swatch" style="background:#6692FF"></span> Elevi neînrolați — România vs OCDE (%)</div>
+    <div class="panel-sub">Proporția copiilor care nu sunt înscriși în nicio formă de învățământ</div>
+    <div class="chart-wrap short"><canvas id="c6"></canvas></div>
+  </div>
+</div>
+
+<div class="summary">
+  <h2>Spirala descendentă a resursei umane</h2>
+  <p>Sistemul preuniversitar românesc se confruntă cu o criză a resursei umane care se auto-alimentează. <span class="highlight">O treime din profesori au peste 50 de ani</span>, iar rata celor tineri (sub 30) a scăzut de la 13% la doar 8% în ultimul deceniu la nivel de gimnaziu. Când această generație se va pensiona, nu va avea cine să îi înlocuiască.</p>
+  <p>Datele de la examenul de <span class="highlight">Titularizare</span> dezvăluie o problemă și mai profundă: calificarea celor care vor să predea. În 2024 și 2025, sub 44% dintre candidați au obținut nota 7 — pragul minim pentru a deveni titular. Restul de 56% fie pot preda doar ca suplinitori (note 5–7), fie au picat complet (note sub 5, ~20%). Ironia e dureroasă: <span class="highlight">rata de promovare a profesorilor la propriul examen este mai mică decât cea a elevilor la BAC</span>. Din promoția curentă (absolvenți din anul respectiv), situația e și mai critică: doar 38–40% obțin note peste 7. Aceasta înseamnă că majoritatea profesorilor noi intră în sistem ca suplinitori, fără stabilitate, fără formare completă, și adesea pe posturi pe care nu le vor ocupa mai mult de un an.</p>
+  <p><span class="highlight">Salariul de pornire al unui profesor din România este de aproximativ €9.000 brut pe an</span> — printre cele mai mici din Uniunea Europeană. Deși în termeni relativi față de PIB-ul per capita salariile par competitive, în termeni absoluți ele nu pot concura cu piața privată, mai ales în urban. Un absolvent de informatică sau economie câștigă dublu sau triplu în sectorul privat de la primul job.</p>
+  <p>Impactul se simte cel mai puternic în <span class="highlight">mediul rural</span>, unde rata NEET ajunge la 26,8% (față de 7,5% în orașele mari) și unde posturile rămân neocupate ani la rând. Copiii din sate au acces la profesori mai puțin calificați, mai puțini suplinitori disponibili, și infrastructură digitală aproape inexistentă. <span class="highlight">16% dintre copiii de 6–14 ani din România nu sunt înscriși în școală</span> (față de 2% media OCDE) — o cifră care reflectă în principal realitatea rurală.</p>
+  <p>Măsurile recente de austeritate au <span class="highlight">agravat situația</span>: Legea 141/2025 a crescut norma didactică cu 2–4 ore, a tăiat plata cu ora, a desființat ~14.000 de posturi și a comasat 515 școli. Salariile au scăzut cu 118 lei net față de 2024. Efectul: profesorii rămași sunt mai încărcați, mai frustrați, iar cei tineri au și mai puține motive să intre în sistem.</p>
+  <p>România este singura țară din OCDE care <span class="highlight">nu oferă rute alternative de intrare în profesie</span> pentru specialiștii din alte domenii. Într-o piață în care lipsesc profesori de matematică, informatică și fizică, absurdul devine structural: există oameni calificați care ar putea preda, dar sistemul nu le permite să intre.</p>
+  <p>Doar 18% dintre profesori consideră că profesia lor este apreciată de societate. Unul din zece regretă că a ales această carieră. Aceasta nu este o criză de voință individuală — este o criză de sistem, cu rădăcini în subfinanțare, instabilitate politică și neglijență instituțională.</p>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const txtCol='#8b949e', gridCol='rgba(255,255,255,.06)';
+
+new Chart(document.getElementById('c1'),{
+  type:'line',
+  data:{
+    labels:['2013','2015','2017','2019','2021','2023'],
+    datasets:[
+      {label:'Sub 30 ani',data:[13,12,11,10,9,8],borderColor:'#EF9F27',backgroundColor:'rgba(239,159,39,.1)',borderWidth:2.5,pointRadius:4,tension:0.3,fill:true},
+      {label:'Peste 50 ani',data:[29,29,30,30,31,32],borderColor:'#E24B4A',backgroundColor:'rgba(226,75,74,.1)',borderWidth:2.5,pointRadius:4,tension:0.3,fill:true}
+    ]
+  },
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:'#161b22',borderColor:'#30363d',borderWidth:1,titleColor:'#e6edf3',bodyColor:'#c9d1d9',callbacks:{label:ctx=>ctx.dataset.label+': '+ctx.raw+'%'}}},scales:{x:{ticks:{color:txtCol,font:{size:11}},grid:{color:gridCol}},y:{min:0,max:40,ticks:{color:txtCol,font:{size:11},callback:v=>v+'%'},grid:{color:gridCol}}}}
+});
+
+new Chart(document.getElementById('c2'),{
+  type:'bar',
+  data:{
+    labels:['2019-20','2020-21','2021-22','2022-23','2023-24','2024-25','2025-26'],
+    datasets:[{label:'Posturi (mii)',data:[315,312,310,310,308,308,294],backgroundColor:function(ctx){return ctx.dataIndex===6?'#E24B4A':'rgba(226,75,74,.4)'},borderRadius:4,barPercentage:0.65}]
+  },
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:'#161b22',borderColor:'#30363d',borderWidth:1,titleColor:'#e6edf3',bodyColor:'#c9d1d9',callbacks:{label:ctx=>ctx.raw+' mii posturi'}}},scales:{x:{ticks:{color:txtCol,font:{size:10}},grid:{display:false}},y:{min:0,max:330,ticks:{color:txtCol,font:{size:11},stepSize:50,callback:v=>v+'k'},grid:{color:gridCol}}}}
+});
+
+new Chart(document.getElementById('cT1'),{
+  type:'bar',
+  data:{
+    labels:['2017','2018','2019','2020','2021','2022','2023','2024','2025'],
+    datasets:[
+      {label:'Note ≥ 7 (titulari)',data:[45.7,47.4,46.9,58.7,44.5,48.7,48.0,41.9,43.5],backgroundColor:'#FF87BC',borderRadius:4,barPercentage:0.7},
+      {label:'Note 5–6,99 (suplinitori)',data:[34.3,32.6,33.1,27.2,35.5,32.9,33.5,37.3,36.4],backgroundColor:'#484f58',borderRadius:4,barPercentage:0.7},
+      {label:'Note sub 5 (picați)',data:[20.0,20.0,20.0,14.1,20.0,18.4,18.5,20.8,20.1],backgroundColor:'#E24B4A',borderRadius:4,barPercentage:0.7}
+    ]
+  },
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:'#161b22',borderColor:'#30363d',borderWidth:1,titleColor:'#e6edf3',bodyColor:'#c9d1d9',callbacks:{label:ctx=>'  '+ctx.dataset.label+': '+ctx.raw+'%'}}},scales:{x:{stacked:true,ticks:{color:txtCol,font:{size:11}},grid:{display:false}},y:{stacked:true,max:100,ticks:{color:txtCol,font:{size:11},callback:v=>v+'%'},grid:{color:gridCol}}}}
+});
+
+new Chart(document.getElementById('cT2'),{
+  type:'doughnut',
+  data:{
+    labels:['Note ≥ 7 (43,5%)','Note 5–6,99 (36,4%)','Note sub 5 (20,1%)'],
+    datasets:[{data:[43.5,36.4,20.1],backgroundColor:['#FF87BC','#484f58','#E24B4A'],borderColor:'#0d1117',borderWidth:2}]
+  },
+  options:{responsive:true,maintainAspectRatio:false,cutout:'55%',plugins:{legend:{display:true,position:'bottom',labels:{color:txtCol,font:{size:10},padding:10,usePointStyle:true,pointStyleWidth:10}},tooltip:{backgroundColor:'#161b22',borderColor:'#30363d',borderWidth:1,titleColor:'#e6edf3',bodyColor:'#c9d1d9'}}}
+});
+
+new Chart(document.getElementById('cT3'),{
+  type:'bar',
+  data:{
+    labels:['2019','2020','2021','2022','2023','2024','2025'],
+    datasets:[
+      {label:'Toți candidații',data:[46.9,58.7,44.5,48.7,48.0,41.9,43.5],backgroundColor:'rgba(255,135,188,.6)',borderRadius:4,barPercentage:0.4},
+      {label:'Promoția curentă',data:[46.8,58.4,40.6,45.8,57.3,38.0,40.1],backgroundColor:'#EF9F27',borderRadius:4,barPercentage:0.4}
+    ]
+  },
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:txtCol,font:{size:10},padding:8,usePointStyle:true,pointStyleWidth:10}},tooltip:{backgroundColor:'#161b22',borderColor:'#30363d',borderWidth:1,titleColor:'#e6edf3',bodyColor:'#c9d1d9',callbacks:{label:ctx=>'  '+ctx.dataset.label+': '+ctx.raw+'%'}}},scales:{x:{ticks:{color:txtCol,font:{size:11}},grid:{display:false}},y:{min:0,max:70,ticks:{color:txtCol,font:{size:11},callback:v=>v+'%'},grid:{color:gridCol}}}}
+});
+
+const euCountries=['Luxemburg','Germania','Danemarca','Belgia','Olanda','Austria','Suedia','Finlanda','Irlanda','Spania','Italia','Franța','Portugalia','Malta','Cehia','Estonia','Grecia','Lituania','Slovenia','Croația','Slovacia','Letonia','Ungaria','Polonia','România','Bulgaria'];
+const euSalaries=[79000,55000,49000,42000,40000,38000,36000,34000,33000,30000,28000,27000,25000,22000,17000,16000,15000,15000,14000,13000,12000,11000,10000,10000,9000,8000];
+const barColors=euCountries.map(c=>c==='România'?'#534AB7':'rgba(83,74,183,.25)');
+
+new Chart(document.getElementById('c3'),{
+  type:'bar',
+  data:{labels:euCountries,datasets:[{label:'Salariu brut anual (€)',data:euSalaries,backgroundColor:barColors,borderRadius:3,barPercentage:0.7}]},
+  options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:'#161b22',borderColor:'#30363d',borderWidth:1,titleColor:'#e6edf3',bodyColor:'#c9d1d9',callbacks:{label:ctx=>'€'+ctx.raw.toLocaleString()}}},scales:{x:{ticks:{color:txtCol,font:{size:10},callback:v=>'€'+Math.round(v/1000)+'k'},grid:{color:gridCol}},y:{ticks:{color:function(ctx){return euCountries[ctx.index]==='România'?'#AFA9EC':txtCol},font:function(ctx){return{size:11,weight:euCountries[ctx.index]==='România'?500:400}}},grid:{display:false}}}}
+});
+
+new Chart(document.getElementById('c4'),{
+  type:'bar',
+  data:{
+    labels:['Rata NEET tineri (%)','Abandon școlar timpuriu (%)','Promovare BAC aprox. (%)'],
+    datasets:[
+      {label:'Rural',data:[26.8,25,55],backgroundColor:'#D85A30',borderRadius:4,barPercentage:0.35},
+      {label:'Urban mare',data:[7.5,8,82],backgroundColor:'#5DCAA5',borderRadius:4,barPercentage:0.35}
+    ]
+  },
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:txtCol,font:{size:10},padding:8,usePointStyle:true,pointStyleWidth:10}},tooltip:{backgroundColor:'#161b22',borderColor:'#30363d',borderWidth:1,titleColor:'#e6edf3',bodyColor:'#c9d1d9',callbacks:{label:ctx=>'  '+ctx.dataset.label+': '+ctx.raw+'%'}}},scales:{x:{ticks:{color:txtCol,font:{size:9}},grid:{display:false}},y:{ticks:{color:txtCol,font:{size:11},callback:v=>v+'%'},grid:{color:gridCol}}}}
+});
+
+new Chart(document.getElementById('c4b'),{
+  type:'bar',
+  data:{
+    labels:['Cheltuieli educație\n(% PIB)','Elevi/profesor\n(primar)','Neînrolare\n6–14 ani (%)','Neînrolare\n15–19 ani (%)'],
+    datasets:[
+      {label:'România',data:[2.9,18.4,16,32],backgroundColor:'#E24B4A',borderRadius:4,barPercentage:0.35},
+      {label:'Media UE / OCDE',data:[4.7,13.6,2,16],backgroundColor:'#6692FF',borderRadius:4,barPercentage:0.35}
+    ]
+  },
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:txtCol,font:{size:10},padding:8,usePointStyle:true,pointStyleWidth:10}},tooltip:{backgroundColor:'#161b22',borderColor:'#30363d',borderWidth:1,titleColor:'#e6edf3',bodyColor:'#c9d1d9',callbacks:{label:ctx=>'  '+ctx.dataset.label+': '+ctx.raw}}},scales:{x:{ticks:{color:txtCol,font:{size:9}},grid:{display:false}},y:{ticks:{color:txtCol,font:{size:11}},grid:{color:gridCol}}}}
+});
+
+new Chart(document.getElementById('c5'),{
+  type:'bar',
+  data:{
+    labels:['Salarizare scăzută','Birocrație excesivă','Normă mărită (2025)','Lipsa respectului social','Nu există rute alternative','Infrastructură precară'],
+    datasets:[{label:'Impact perceput',data:[95,82,78,72,65,60],backgroundColor:['#0F6E56','#1D9E75','#1D9E75','#0F6E56','#1D9E75','#0F6E56'],borderRadius:4,barPercentage:0.6}]
+  },
+  options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{backgroundColor:'#161b22',borderColor:'#30363d',borderWidth:1,titleColor:'#e6edf3',bodyColor:'#c9d1d9'}},scales:{x:{max:100,ticks:{color:txtCol,font:{size:10},callback:v=>v+'%'},grid:{color:gridCol}},y:{ticks:{color:txtCol,font:{size:10}},grid:{display:false}}}}
+});
+
+new Chart(document.getElementById('c6'),{
+  type:'bar',
+  data:{
+    labels:['6–14 ani','15–19 ani'],
+    datasets:[
+      {label:'România',data:[16,32],backgroundColor:'#E24B4A',borderRadius:4,barPercentage:0.35},
+      {label:'Media OCDE',data:[2,16],backgroundColor:'#6692FF',borderRadius:4,barPercentage:0.35}
+    ]
+  },
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{color:txtCol,font:{size:10},padding:8,usePointStyle:true,pointStyleWidth:10}},tooltip:{backgroundColor:'#161b22',borderColor:'#30363d',borderWidth:1,titleColor:'#e6edf3',bodyColor:'#c9d1d9',callbacks:{label:ctx=>ctx.dataset.label+': '+ctx.raw+'%'}}},scales:{x:{ticks:{color:txtCol,font:{size:12}},grid:{display:false}},y:{ticks:{color:txtCol,font:{size:11},callback:v=>v+'%'},grid:{color:gridCol}}}},
+  plugins:[{id:'barLabels',afterDatasetsDraw(chart){const ctx=chart.ctx;chart.data.datasets.forEach((ds,di)=>{const meta=chart.getDatasetMeta(di);meta.data.forEach((bar,i)=>{ctx.fillStyle=di===0?'#E24B4A':'#6692FF';ctx.font='500 12px system-ui,sans-serif';ctx.textAlign='center';ctx.fillText(ds.data[i]+'%',bar.x,bar.y-6)})})}}]
+});
+</script>
+</body>
+</html>
